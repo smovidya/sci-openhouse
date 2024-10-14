@@ -30,9 +30,14 @@ function DisplaySVG() {
 
     return (
         <div className="p-8">
-            <h1 className="rounded-md bg-deepBlue text-white p-2 border-darkNavyBlue border-2 text-6xl mb-8 text-center shadow-lg">
+            <h1 className="rounded-md bg-deepBlue text-white p-2 font-SilverStone-Regular border-darkNavyBlue border-2 text-6xl mb-8 text-center shadow-lg">
                 Assets
+
             </h1>
+            <h1 className="rounded-md bg-deepBlue text-white p-2 text-[24px] font-ibm-plex-thai border-darkNavyBlue border-2 text-6xl mb-8 text-center shadow-lg">
+                Assets 123 หน้าแรกเป็นโลโก้ของงาน ชื่องาน
+            </h1>
+            
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
                 {svgs.map((svg, index) => (
                     <div
