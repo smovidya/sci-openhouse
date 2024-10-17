@@ -2,6 +2,8 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { useState } from 'react';
 import { Question } from './question';
+import { Sponser } from '../components/ui/elements/sponser';
+import { Header } from '../components/ui/elements/header';
 
 const Login = () => {
 	const[next,setNext] = useState(true);
@@ -14,12 +16,7 @@ const Login = () => {
 		<div>
 			{next?(<div className="bg-deepBlue h-screen w-screen flex flex-col items-center justify-start p-8">
 			<div className="mb-32">
-				<div className="text-goldenYellow font-SilverStone-Regular text-[42px]">
-					SCIASTRAL
-				</div>
-				<div className="text-goldenYellow font-SilverStone-Regular text-3xl">
-					scichulaopenhouse
-				</div>
+				<Header/>
 			</div>
 			{/* Name Box */}
 			<div className="h-72 w-80 bg-lightSkyBlue rounded-3xl p-8 flex flex-col items-center justify-center">
@@ -37,11 +34,7 @@ const Login = () => {
 				</Button>
 			</div>
 			<div className="mt-24">
-				<div className="h-8 border-2 font-noto-serif-thai text-center">
-					sponser logos
-				</div>
-				<div className="h-8 border-2">logo logo logo logo</div>
-			</div>
+				<Sponser/></div>
 		</div>):(<Question/>)}
 		</div>
 	);

@@ -52,20 +52,21 @@ export default {
     				'5': 'hsl(var(--chart-5))'
     			}
     		},
-			fontFamily: {
-				'SilverStone-Regular':['SilverStone-Regular', 'sans-serif'],
-				'SilverStone-Rough': ['SilverStone-Rough', 'sans-serif'],
-				'ibm-plex-thai': ['"IBM Plex Sans Thai"', 'sans-serif'],
-				'noto-serif-thai': ['"Noto Serif Thai"', 'sans-serif'],
-			}, fontWeight: {
-				thin: 100,
-				extralight: 200,
-				light: 300,
-				regular: 400,
-				medium: 500,
-				semibold: 600,
-				bold: 700,
-			},
+    		fontFamily: {
+    			'SilverStone-Regular': ['SilverStone-Regular', 'sans-serif'],
+    			'SilverStone-Rough': ['SilverStone-Rough', 'sans-serif'],
+    			'ibm-plex-thai': ['IBM Plex Sans Thai"', 'sans-serif'],
+    			'noto-serif-thai': ['Noto Serif Thai"', 'sans-serif']
+    		},
+    		fontWeight: {
+    			thin: '100',
+    			extralight: '200',
+    			light: '300',
+    			regular: '400',
+    			medium: '500',
+    			semibold: '600',
+    			bold: '700'
+    		},
     		borderRadius: {
     			lg: 'var(--radius)',
     			md: 'calc(var(--radius) - 2px)',

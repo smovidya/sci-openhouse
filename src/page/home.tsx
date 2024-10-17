@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Login } from './Login';
-
+import { Login } from './login';
+import { Sponser } from '../components/ui/elements/sponser';
 const Home = () => {
 	const [home, setHome] = useState(true);
 
@@ -15,8 +15,8 @@ const Home = () => {
 					onClick={handleHome}
 				>
 					<div className="h-[300px] w-[360px] border-4 border-goldenYellow rounded-[32px] mb-2 flex-col flex items-center justify-center">
+						{/* temp
 						<div className="w-44 h-24 pb-2 border-2 border-red-600">
-							{/* temp */}
 							<svg viewBox="0 0 500 500">
 								<path
 									id="curve"
@@ -27,6 +27,9 @@ const Home = () => {
 									<textPath xlinkHref="#curve">&nbsp;SCIASTRAL</textPath>
 								</text>
 							</svg>
+						</div> */}
+						<div className="h-24 pb-2 font-SilverStone-Regular text-[52px] text-goldenYellow">
+							SCIASTRAIL
 						</div>
 						<div className="text-goldenYellow font-SilverStone-Regular text-3xl pb-2">
 							scichulaopenhouse
@@ -36,10 +39,7 @@ const Home = () => {
 						</div>
 					</div>
 					<div className="mt-52">
-						<div className="h-8 border-2 font-noto-serif-thai text-center">
-							sponser logos
-						</div>
-						<div className="h-8 border-2">logo logo logo logo</div>
+						<Sponser />
 					</div>
 				</div>
 			) : (
