@@ -6,5 +6,11 @@ import { Home } from './page/home.tsx';
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
 		<Home/>
+import DisplaySVG from './displaySVG.tsx';
+
+createRoot(document.getElementById('root')!).render(
+	<StrictMode>
+		<App />
+		<DisplaySVG />
 	</StrictMode>
 );
