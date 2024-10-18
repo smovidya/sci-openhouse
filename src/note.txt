@@ -1,0 +1,50 @@
+sai=[0,0,0,0]
+do QuesSai
+
+maxSai=max(sai)
+cntMaxSai=0
+for(i in sai)
+{
+    if (i==maxSai) {cntMaxSai++}
+}
+if (cntMaxSai!=1) {do extraQuesSai}
+maxSai=max(sai)
+sai=sai.id
+
+// get sai laew
+
+if(sai==0) pak=[0,0,0,0]
+elif(sai==1) pak=[0,0,0,0]
+elif(sai==2) pak=[0,0,0]
+elif(sai==3) pak=[0,0,0,0,0,0]
+
+
+if(sai.id==0){  // A ชีวภาพ
+    QuesPak[1].ans= [เดินเล่นในสวน,เล่นดนตรี,จิบชายามว่าง,ถ่ายคอนเท้น]
+    QuesPak[2].ans=
+    .
+    .
+    QuesPak[5].ans=
+}
+if(sai.id==1){  // B กายภาพ
+    QuesPak[1].ans= [เล่่นเกม,ถ่่ายคอนเท้น,ร้องเพลง,อ่านหนังสือ]
+    QuesPak[2].ans=
+    .
+    .
+    QuesPak[5].ans=
+}
+if(sai.id==2){  // C สิ่งแวดล้อม
+    QuesPak[1].ans= [เดินเล่นในสวน,ชมอควาเรียม,ปีนผา]
+    QuesPak[2].ans=
+    .
+    .
+    QuesPak[5].ans=
+}
+
+
+
+
+
+
+
+???
