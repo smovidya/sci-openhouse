@@ -1,45 +1,37 @@
 import { useState } from 'react';
 import { Login } from './login';
 import { Sponser } from '../components/ui/elements/sponser';
+import { HeaderHome } from '../components/ui/elements/header';
+
+//หน้าแรกเมื่อเข้าสู่เว็บ
 const Home = () => {
+	//เก็บสถานะหน้าว่าเป็นหน้า Home หรือไม่
 	const [home, setHome] = useState(true);
 
+	//เปลี่ยนสถานะหน้า Home
 	const handleHome = () => {
 		setHome(false);
 	};
+
 	return (
 		<div>
 			{home ? (
 				<div
 					className="bg-deepBlue h-screen w-screen flex flex-col items-center justify-center"
-					onClick={handleHome}
+					onClick={handleHome} //เมื่อกดหน้าจอจะเปลี่ยนเป็นอีกหน้านึง
 				>
-					<div className="h-[300px] w-[360px] border-4 border-goldenYellow rounded-[32px] mb-2 flex-col flex items-center justify-center">
-						{/* temp
-						<div className="w-44 h-24 pb-2 border-2 border-red-600">
-							<svg viewBox="0 0 500 500">
-								<path
-									id="curve"
-									//d="M 0 0 C 16 -11 51 -11 69 0"
-									d="M 0 142 c 0 0 72 -18 144 -18 c 72 0 144 16 120 19"
-								/>
-								<text className="font-SilverStone-Regular text-[60px]">
-									<textPath xlinkHref="#curve">&nbsp;SCIASTRAL</textPath>
-								</text>
-							</svg>
-						</div> */}
-						<div className="h-24 pb-2 font-SilverStone-Regular text-[52px] text-goldenYellow">
-							SCIASTRAIL
+					<div className="w-[340px] h-[780px] p-[18px] rounded-[20px] border-4 border-[#f9cd2f] flex-col justify-start items-center gap-[38px] inline-flex">
+						<div className="h-[386px] flex-col justify-start items-center gap-7 inline-flex">
+							<img
+								className="w-20 h-20"
+								src="https://via.placeholder.com/80x80"
+							/>
+							<div className="h-48 p-5 rounded-md flex-col justify-center items-center gap-[18px] flex">
+								<HeaderHome />
+							</div>
 						</div>
-						<div className="text-goldenYellow font-SilverStone-Regular text-3xl pb-2">
-							scichulaopenhouse
-						</div>
-						<div className="text-goldenYellow font-SilverStone-Regular text-4xl">
-							2-3 NovembeR 2024
-						</div>
-					</div>
-					<div className="mt-52">
 						<Sponser />
+						
 					</div>
 				</div>
 			) : (

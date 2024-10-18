@@ -1,10 +1,31 @@
+import { Avatar,AvatarImage,AvatarFallback } from '../avatar';
 const Sponser = () => {
 	return (
-		<div>
-			<div className="h-8 font-noto-serif-thai text-center text-lightSkyBlue">
-				sponser logos
-			</div>
-			<div className="h-8 ">logo logo logo logo</div>
+		<div className='flex gap-1'>
+			<Avatar>
+				<AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+				<AvatarFallback>CN</AvatarFallback>
+			</Avatar>
+			<Avatar>
+				<AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+				<AvatarFallback>CN</AvatarFallback>
+			</Avatar>
+			<Avatar>
+				<AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+				<AvatarFallback>CN</AvatarFallback>
+			</Avatar>
+			<Avatar>
+				<AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+				<AvatarFallback>CN</AvatarFallback>
+			</Avatar>
+			<Avatar>
+				<AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+				<AvatarFallback>CN</AvatarFallback>
+			</Avatar>
+			<Avatar>
+				<AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+				<AvatarFallback>CN</AvatarFallback>
+			</Avatar>
 		</div>
 	);
 };
