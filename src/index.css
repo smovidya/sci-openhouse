@@ -7,6 +7,15 @@
 @tailwind utilities;
 
 @layer base {
+    Body{
+        background-image: url('background.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        margin: auto;
+    }
     @font-face {
         font-family: 'SilverStone-Regular';
         font-style: normal;
