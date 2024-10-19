@@ -17,10 +17,10 @@ const Home = () => {
 		<div>
 			{home ? (
 				<div
-					className="bg-deepBlue h-screen w-screen flex flex-col items-center justify-center"
+					className="absolute left-1/2 flex min-h-dvh w-full max-w-md -translate-x-1/2"
 					onClick={handleHome} //เมื่อกดหน้าจอจะเปลี่ยนเป็นอีกหน้านึง
 				>
-					<div className="w-[340px] h-[780px] p-[18px] rounded-[20px] border-4 border-[#f9cd2f] flex-col justify-start items-center gap-[38px] inline-flex">
+					<div className="w-full h-screen bg-cover overflow-hidden relative p-[18px] bg-[url('../assets/defaultBG.svg')] rounded-[20px] flex-col justify-start items-center gap-[38px] inline-flex">
 						<div className="h-[386px] flex-col justify-start items-center gap-7 inline-flex">
 							<img
 								className="w-20 h-20"

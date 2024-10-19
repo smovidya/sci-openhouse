@@ -72,6 +72,9 @@ export default {
                 lg: 'var(--radius)',
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)'
+            },
+            backgroundImage: {
+                'background-Image' : "url('/public/assets/backgroundHome.jpg')",
             }
         }
     },
