@@ -66,4 +66,4 @@ const questionsSaiExtra = [
 	},
 ];
 
-export {questionsSai,questionsSaiExtra}
+export { questionsSai, questionsSaiExtra };
