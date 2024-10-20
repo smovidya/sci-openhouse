@@ -6,8 +6,8 @@ import { Sponser } from '../components/ui/elements/sponser';
 import { Header } from '../components/ui/elements/header';
 
 const Login = () => {
-	const [next, setNext] = useState(true); 	//ปุ่มข้างหน้าถัดไป
-	const [name, setName] = useState('');	//เก็บชื่อ
+	const [next, setNext] = useState(true); //ปุ่มข้างหน้าถัดไป
+	const [name, setName] = useState(''); //เก็บชื่อ
 	const handleNext = (name: string) => {
 		if (name != '') {
 			console.log(name);

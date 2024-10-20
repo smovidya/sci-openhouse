@@ -31,7 +31,6 @@ const Home = () => {
 							</div>
 						</div>
 						<Sponser />
-						
 					</div>
 				</div>
 			) : (
