@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Login } from './login';
+import { Login } from './Login';
 import { Sponser } from '../components/ui/elements/sponser';
 import { HeaderHome } from '../components/ui/elements/header';
 
