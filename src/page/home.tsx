@@ -47,6 +47,10 @@ const Home = () => {
 								className="absolute bottom-[-120px] left-[-150px] rotate-45 z-10 scale-125"
 							/>
 						</div>
+<<<<<<< HEAD
+=======
+						<Sponser />
+>>>>>>> 35e3ccef80c60f9834cade815b93148fc13748c8
 					</div>
 				</div>
 			) : (
