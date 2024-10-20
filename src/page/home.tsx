@@ -16,7 +16,7 @@ const Home = () => {
 	};
 
 	return (
-		<div>
+		<div className="absolute left-1/2 transform -translate-x-1/2 flex min-h-screen w-full max-w-md">
 			{home ? (
 				<div
 					className={`absolute inset-0 flex items-center justify-center transition-all duration-500 
