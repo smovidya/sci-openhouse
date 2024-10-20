@@ -14,13 +14,12 @@ const Home = () => {
 	};
 
 	return (
-		<div>
-			{home ? (
 				<div
 					className="absolute left-1/2 flex min-h-dvh w-full max-w-md -translate-x-1/2"
 					onClick={handleHome} //เมื่อกดหน้าจอจะเปลี่ยนเป็นอีกหน้านึง
 				>
-					<div className="w-full h-screen bg-cover overflow-hidden relative p-[18px] bg-[url('../assets/defaultBG.svg')] rounded-[20px] flex-col justify-start items-center gap-[38px] inline-flex">
+					{home ? (
+					<div className="w-full h-screen relative p-[18px] rounded-[20px] flex-col justify-start items-center gap-[38px] inline-flex">
 						<div className="h-[386px] flex-col justify-start items-center gap-7 inline-flex">
 							<img
 								className="w-20 h-20"
@@ -33,7 +32,6 @@ const Home = () => {
 						<Sponser />
 						
 					</div>
-				</div>
 			) : (
 				<Login />
 			)}
