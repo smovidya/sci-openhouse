@@ -6,11 +6,11 @@ import {
 import { useEffect, useState } from 'react';
 
 const Question = () => {
-	const [currentQuestion, setCurrentQuestion] = useState(0);	//เก็บ index ข้อปัจจุบัน
-	const [selectedOption, setSelectedOption] = useState(-1);	//เก็บ index of selected choice
-	const [finishedSai, setFinishedSai] = useState(false);	//เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
-	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1));	//list คำตอบทั้งหมด(index)
-	const [sai, setSai] = useState(-1);	//เก็บ index ของสายที่ได้ อิงตามใน docs
+	const [currentQuestion, setCurrentQuestion] = useState(0); //เก็บ index ข้อปัจจุบัน
+	const [selectedOption, setSelectedOption] = useState(-1); //เก็บ index of selected choice
+	const [finishedSai, setFinishedSai] = useState(false); //เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
+	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1)); //list คำตอบทั้งหมด(index)
+	const [sai, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
 
 	//set answer ทุกครั้งหลังทำแต่ละข้อเสร็จ
 	useEffect(() => {
@@ -63,7 +63,6 @@ const Question = () => {
 
 			cntHightestSai(answers); // Call the function to calculate the highest SAI
 		}
-		
 	}, [finishedSai, answers]); // Only run when the quiz is finished
 
 	//ไปข้อก่อนหน้า

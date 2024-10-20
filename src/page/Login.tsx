@@ -6,8 +6,8 @@ import { Sponser } from '../components/ui/elements/sponser';
 import { Header } from '../components/ui/elements/header';
 
 const Login = () => {
-	const [next, setNext] = useState(true); 	//ปุ่มข้างหน้าถัดไป
-	const [name, setName] = useState('');	//เก็บชื่อ
+	const [next, setNext] = useState(true); //ปุ่มข้างหน้าถัดไป
+	const [name, setName] = useState(''); //เก็บชื่อ
 	const handleNext = (name: string) => {
 		if (name != '') {
 			console.log(name);
@@ -15,33 +15,43 @@ const Login = () => {
 		}
 	};
 	return (
-		<div>
+		<div className="absolute left-1/2 transform -translate-x-1/2 flex min-h-screen w-full max-w-md">
 			{next ? (
-				<div className="bg-deepBlue h-screen w-screen flex flex-col items-center justify-start p-8">
-					<div className="mb-32">
-						<Header />
-					</div>
-					{/* Name Box */}
-					<div className="h-72 w-80 bg-lightSkyBlue rounded-3xl p-8 flex flex-col items-center justify-center">
-						<div className="w-full text-center py-4 text-2xl font-noto-serif-thai">
-							Drop your name
-						</div>
-						<Input
-							type="name"
-							placeholder="Name"
-							className="h-12 bg-white border-transparent text-center rounded-full mb-4"
-							onChange={(e) => setName(e.target.value)}
+				<div className="h-screen w-screen bg-[url('../assets/defaultBG.svg')] flex flex-col items-center justify-between px-[40px] py-[47px]">
+					<div className="w-full h-full p-[18px] rounded-[20px] border-4 border-[#f9cd2f] flex flex-col gap-[28px] items-center">
+						<img
+							className="w-20 h-20"
+							src="../assets/logo white-border-yellow.svg"
 						/>
-						<Button
-							onClick={() => handleNext(name)}
-							type="submit"
-							className="h-10 w-24 rounded-full bg-goldenYellow"
-						>
-							Next
-						</Button>
-					</div>
-					<div className="mt-24">
-						<Sponser />
+						<div className="mt-5">
+							<Header />
+						</div>
+						<div className="w-full">
+							<div className="w-full text-center text-2xl text-[#f9cd2f] font-ibm-plex-thai mb-4">
+								DROP YOUR NAME
+							</div>
+							<Input
+								type="text"
+								placeholder="Your Name"
+								className="w-full h-12 bg-white border-transparent text-center rounded-md shadow-md mb-4"
+								onChange={(e) => setName(e.target.value)}
+							/>
+
+							<div className="flex justify-end w-full">
+								<Button
+									onClick={() => handleNext(name)}
+									type="submit"
+									variant="outline"
+									className="h-10 px-6 py-2 rounded-md bg-[#f9cd2f] text-black font-medium"
+								>
+									Next
+								</Button>
+							</div>
+						</div>
+
+						<div className="mt-10">
+							<Sponser />
+						</div>
 					</div>
 				</div>
 			) : (
