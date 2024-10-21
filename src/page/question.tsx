@@ -86,8 +86,11 @@ const Question = () => {
 						{qSai[currentQuestion].choices.map((choices, index) => (
 							<Button
 								key={index}
-								onClick={() => setSelectedOption(index)}
-								className={`w-full p-2 border rounded-md ${
+								onClick={() => {
+									setSelectedOption(index);
+									handleNext();
+								}}
+								className={`w-full p-3 rounded-md font-ibm-plex-thai ${
 									qSai[currentQuestion].choices[selectedOption] === choices
 										? 'bg-gray-400 text-white'
 										: 'bg-gray-200'
