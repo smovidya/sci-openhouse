@@ -16,9 +16,7 @@ const Home = () => {
 	};
 
 	return (
-		<div
-			className="flex justify-center items-center w-full max-w-md mx-auto"
-		>
+		<div>
 			{home ? (
 				<div
 					className={`w-full h-full flex items-center justify-center transition-all duration-500 
@@ -37,6 +35,7 @@ const Home = () => {
 							Click to continue
 						</div>
 						<Sponser />
+						
 					</div>
 				</div>
 			) : (

@@ -77,40 +77,36 @@ const Question = () => {
 	return (
 		<div>
 			{!finishedSai ? (
-				<div className="w-full max-w-md bg-white p-6 shadow-md rounded-lg">
-					<div className="text-2xl font-bold mb-4">
-						Question {currentQuestion + 1}
-					</div>
-					<p className="text-lg mb-6">{qSai[currentQuestion].question}</p>
+				<div className="w-full p-12 flex-col justify-center">
+					<h2 className="text-7xl font-SilverStone-Regular text-Yellow mb-4">
+						QUESTION {currentQuestion + 1}
+					</h2>
+					<p className="text-lg mb-6 text-Yellow font-ibm-plex-thai justify-center">{qSai[currentQuestion].question}</p>
 					<div className="space-y-4">
 						{qSai[currentQuestion].choices.map((choices, index) => (
 							<Button
 								key={index}
-								onClick={() => setSelectedOption(index)}
-								className={`w-full p-2 border font-noto-serif-thai rounded-md ${
+								onClick={() => {
+									setSelectedOption(index);
+									handleNext();
+								}}
+								className={`w-full p-3 rounded-md font-ibm-plex-thai ${
 									qSai[currentQuestion].choices[selectedOption] === choices
-										? 'bg-blue-500 text-white'
-										: 'bg-gray-200 text-black'
+										? 'bg-gray-400 text-white'
+										: 'bg-gray-200'
 								}`}
 							>
 								{choices}
 							</Button>
 						))}
 					</div>
-					<div className="flex gap-2 my-2">
+					<div className="flex gap-2 my-4">
 						<Button
 							onClick={handlePrevious}
-							className="px-4 py-2 text-white rounded-md disabled:bg-gray-400"
+							className="px-4 py-2 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 							disabled={currentQuestion === 0}
 						>
-							Previous
-						</Button>
-						<Button
-							onClick={() => handleNext()}
-							className="px-4 py-2 text-white rounded-md disabled:bg-gray-400"
-							disabled={selectedOption === -1}
-						>
-							Next
+							Back
 						</Button>
 					</div>
 				</div>
