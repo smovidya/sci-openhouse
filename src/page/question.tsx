@@ -6,11 +6,11 @@ import {
 import { useEffect, useState } from 'react';
 
 const Question = () => {
-	const [currentQuestion, setCurrentQuestion] = useState(0);	//เก็บ index ข้อปัจจุบัน
-	const [selectedOption, setSelectedOption] = useState(-1);	//เก็บ index of selected choice
-	const [finishedSai, setFinishedSai] = useState(false);	//เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
-	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1));	//list คำตอบทั้งหมด(index)
-	const [sai, setSai] = useState(-1);	//เก็บ index ของสายที่ได้ อิงตามใน docs
+	const [currentQuestion, setCurrentQuestion] = useState(0); //เก็บ index ข้อปัจจุบัน
+	const [selectedOption, setSelectedOption] = useState(-1); //เก็บ index of selected choice
+	const [finishedSai, setFinishedSai] = useState(false); //เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
+	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1)); //list คำตอบทั้งหมด(index)
+	const [sai, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
 
 	//set answer ทุกครั้งหลังทำแต่ละข้อเสร็จ
 	useEffect(() => {
@@ -63,7 +63,6 @@ const Question = () => {
 
 			cntHightestSai(answers); // Call the function to calculate the highest SAI
 		}
-		
 	}, [finishedSai, answers]); // Only run when the quiz is finished
 
 	//ไปข้อก่อนหน้า
@@ -83,9 +82,10 @@ const Question = () => {
 						QUESTION {currentQuestion + 1}
 					</h2>
 					<p className="text-lg mb-6 text-Yellow font-ibm-plex-thai justify-center">{qSai[currentQuestion].question}</p>
+
 					<div className="space-y-4">
 						{qSai[currentQuestion].choices.map((choices, index) => (
-							<button
+							<Button
 								key={index}
 								onClick={() => {
 									setSelectedOption(index);
@@ -95,10 +95,11 @@ const Question = () => {
 									qSai[currentQuestion].choices[selectedOption] === choices
 										? 'bg-gray-400 text-white'
 										: 'bg-gray-200'
+
 								}`}
 							>
 								{choices}
-							</button>
+							</Button>
 						))}
 					</div>
 					<div className="flex gap-2 my-4">
