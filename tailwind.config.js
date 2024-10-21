@@ -55,8 +55,8 @@ export default {
 			fontFamily: {
 				'SilverStone-Regular': ['SilverStone-Regular', 'sans-serif'],
 				'SilverStone-Rough': ['SilverStone-Rough', 'sans-serif'],
-				'ibm-plex-thai': ['IBM Plex Sans Thai"', 'sans-serif'],
-				'noto-serif-thai': ['Noto Serif Thai"', 'sans-serif'],
+				'ibm-plex-thai': ['IBM Plex Sans Thai', 'sans-serif'],
+				'noto-serif-thai': ['Noto Serif Thai', 'sans-serif'],
 			},
 			fontWeight: {
 				thin: '100',
