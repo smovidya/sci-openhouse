@@ -78,23 +78,23 @@ const Question = () => {
 		<div>
 			{!finishedSai ? (
 				<div className="w-full max-w-md bg-white p-6 shadow-md rounded-lg">
-					<h2 className="text-2xl font-bold mb-4">
+					<div className="text-2xl font-bold mb-4">
 						Question {currentQuestion + 1}
-					</h2>
+					</div>
 					<p className="text-lg mb-6">{qSai[currentQuestion].question}</p>
 					<div className="space-y-4">
 						{qSai[currentQuestion].choices.map((choices, index) => (
-							<button
+							<Button
 								key={index}
 								onClick={() => setSelectedOption(index)}
-								className={`w-full p-2 border rounded-md ${
+								className={`w-full p-2 border font-noto-serif-thai rounded-md ${
 									qSai[currentQuestion].choices[selectedOption] === choices
 										? 'bg-blue-500 text-white'
-										: 'bg-gray-200'
+										: 'bg-gray-200 text-black'
 								}`}
 							>
 								{choices}
-							</button>
+							</Button>
 						))}
 					</div>
 					<div className="flex gap-2 my-2">
