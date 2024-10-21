@@ -1,16 +1,23 @@
 import { CircleIcon } from '@radix-ui/react-icons';
 import { Sponser } from '../components/ui/elements/sponser';
 import Sun from '/assets/sun.svg';
-import Star from '/assets/stars.svg';
-import IG from '/assets/ig.png';
 import { Button } from '../components/ui/button';
+import { Download } from 'lucide-react';
+
+const downloadImageFromURL = (imageUrl: string, fileName: string) => {
+  const link = document.createElement('a');
+  link.href = imageUrl;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
 const Result = () => {
   return (
     <div className="flex relative h-screen justify-center items-center">
       <div className=" flex flex-col rounded-[30px] w-[340px] h-[688px] px-6 py-8 border-4 border-Yellow bg-gradient-to-b from-black via-[#172854] to-[#000102] relative z-10">
 
-        <img src={Star} alt='star' className='absolute overflow-hidden min-w-[500px] h-auto top-[-100px] right-[0px]' />
         <img src={Sun} alt='sun' className='absolute overflow-hidden min-w-[538.59px] h-auto top-[-180px] right-[-264px]' />
 
         <div className="flex flex-col mb-6">
@@ -42,11 +49,11 @@ const Result = () => {
           <div className='flex-grow border-t-2 border-white'></div>
         </div>
 
-        <Button className='flex justify-center items-center bg-transparent hover:bg-transparent self-center w-fit'>
-          <img src={IG} alt='ig' className='w-[48px]' />
+        <Button
+          onClick={() => downloadImageFromURL('/type.png', 'a')}
+          className='flex justify-center items-center bg-transparent hover:bg-transparent self-center w-fit'>
+          <Download />
         </Button>
-
-        <img src={Star} alt='star' className='overflow-hidden absolute min-w-[500px] h-auto top-[500px] right-[0px]' />
       </div>
     </div>
 
