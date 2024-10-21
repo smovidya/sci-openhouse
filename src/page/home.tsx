@@ -19,32 +19,22 @@ const Home = () => {
 		<div>
 			{home ? (
 				<div
-					className={`w-full h-full flex items-center justify-center transition-all duration-500 
-        ${animationEnd ? 'opacity-0 -translate-y-10' : 'opacity-100 translate-y-0'}`}
+					className={`transition-all duration-500 bg-home relative flex flex-col items-center gap-10 ">
+						${animationEnd ? 'opacity-0 -translate-y-10' : 'opacity-100 translate-y-0'}`}
 					onClick={handleHome}
 				>
-					<div className="w-full min-h-screen bg-cover overflow-hidden relative px-[40px] py-[47px] bg-[url('../assets/HomeBG.svg')] rounded-[20px] flex flex-col justify-start items-center gap-[38px]">
-						<img
-							className="w-20 h-20"
-							src="../assets/logo white-border-yellow.svg"
-						/>
-						<div className="h-48 p-5 rounded-md flex flex-col justify-center items-center gap-[18px]">
-							<HeaderHome />
-						</div>
-						<div className="text-center text-Yellow text-xl font-SilverStone-Regular uppercase leading-7">
-							Click to continue
-						</div>
-						<Sponser />
-						
+					<img
+						className="w-20 h-20"
+						src="../assets/logo white-border-yellow.svg"
+					/>
+					<HeaderHome />
+					<div className="text-center text-Yellow text-xl font-SilverStone-Regular uppercase leading-7">
+						Click to continue
 					</div>
+					<Sponser />
 				</div>
 			) : (
-				<div
-					className={`w-full h-full flex items-center justify-center transition-all duration-500 
-        ${!home ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-				>
-					<Login />
-				</div>
+				<Login />
 			)}
 		</div>
 	);

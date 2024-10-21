@@ -1,16 +1,17 @@
 import { Button } from '../components/ui/button';
 import {
 	questionsSai as qSai,
-	questionsSaiExtra as qSaiExtra,
+	// questionsSaiExtra as qSaiExtra,
 } from '../components/ui/elements/questions';
 import { useEffect, useState } from 'react';
+import { Result } from './result';
 
 const Question = () => {
-	const [currentQuestion, setCurrentQuestion] = useState(0);	//เก็บ index ข้อปัจจุบัน
-	const [selectedOption, setSelectedOption] = useState(-1);	//เก็บ index of selected choice
-	const [finishedSai, setFinishedSai] = useState(false);	//เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
-	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1));	//list คำตอบทั้งหมด(index)
-	const [sai, setSai] = useState(-1);	//เก็บ index ของสายที่ได้ อิงตามใน docs
+	const [currentQuestion, setCurrentQuestion] = useState(0); //เก็บ index ข้อปัจจุบัน
+	const [selectedOption, setSelectedOption] = useState(-1); //เก็บ index of selected choice
+	const [finishedSai, setFinishedSai] = useState(false); //เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
+	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1)); //list คำตอบทั้งหมด(index)
+	const [, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
 
 	//set answer ทุกครั้งหลังทำแต่ละข้อเสร็จ
 	useEffect(() => {
@@ -63,7 +64,6 @@ const Question = () => {
 
 			cntHightestSai(answers); // Call the function to calculate the highest SAI
 		}
-		
 	}, [finishedSai, answers]); // Only run when the quiz is finished
 
 	//ไปข้อก่อนหน้า
@@ -78,12 +78,14 @@ const Question = () => {
 	return (
 		<div>
 			{!finishedSai ? (
-				<div className="w-full p-12 flex-col justify-center">
-					<h2 className="text-7xl font-SilverStone-Regular text-Yellow mb-4">
+				<div className="bg-question flex flex-col">
+					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						QUESTION {currentQuestion + 1}
-					</h2>
-					<p className="text-lg mb-6 text-Yellow font-ibm-plex-thai justify-center">{qSai[currentQuestion].question}</p>
-					<div className="space-y-4">
+					</div>
+					<div className="text-lg mb-6 text-Yellow font-ibm-plex-thai">
+						{qSai[currentQuestion].question}
+					</div>
+					<div className="space-y-4 mb-4">
 						{qSai[currentQuestion].choices.map((choices, index) => (
 							<button
 								key={index}
@@ -101,58 +103,43 @@ const Question = () => {
 							</button>
 						))}
 					</div>
-					<div className="flex gap-2 my-4">
-						<Button
-							onClick={handlePrevious}
-							className="px-4 py-2 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
-							disabled={currentQuestion === 0}
-						>
-							Back
-						</Button>
-					</div>
+					<Button
+						onClick={handlePrevious}
+						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
+						disabled={currentQuestion === 0}
+					>
+						Back
+					</Button>
 				</div>
 			) : (
-				<div className="w-full max-w-md bg-white p-6 shadow-md rounded-lg">
-					{sai === -1 ? (
-						<div>
-							ทำอีกข้อนึง
-							<p className="text-lg mb-6">{qSaiExtra[0].question}</p>
-							<div className="space-y-4">
-								{qSaiExtra[0].choices.map((choices, index) => (
-									<button
-										key={index}
-										onClick={() => setSelectedOption(index)}
-										className={`w-full p-2 border rounded-md ${
-											qSaiExtra[0].choices[selectedOption] === choices
-												? 'bg-blue-500 text-white'
-												: 'bg-gray-200'
-										}`}
-									>
-										{choices}
-									</button>
-								))}
-							</div>
-							<div className="flex gap-2 my-2">
-								<Button
-									onClick={handlePrevious}
-									className="px-4 py-2 text-white rounded-md disabled:bg-gray-400"
-									disabled={currentQuestion === 0}
-								>
-									Previous
-								</Button>
-								<Button
-									onClick={() => handleNext()}
-									className="px-4 py-2 text-white rounded-md disabled:bg-gray-400"
-									disabled={selectedOption === -1}
-								>
-									Next
-								</Button>
-							</div>
-						</div>
-					) : (
-						<div>ทำข้อที่เหลือ</div>
-					)}
-				</div>
+				<Result />
+				// <div className="bg-question text-yellow-300">
+				// 	{sai}	{/* สายยังผิดอยู่ */}
+				// 	{sai === -1 ? (
+				// 		<div>
+				// 			<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
+				// 				QUESTION {currentQuestion + 1}
+				// 			</div>
+				// 			<div className="space-y-4">
+				// 				{qSaiExtra[0].choices.map((choices, index) => (
+				// 					<button
+				// 						key={index}
+				// 						onClick={() => setSelectedOption(index)}
+				// 						className={`w-full p-2 border rounded-md ${
+				// 							qSaiExtra[0].choices[selectedOption] === choices
+				// 								? 'bg-blue-500 text-white'
+				// 								: 'bg-gray-200'
+				// 						}`}
+				// 					>
+				// 						{choices}
+				// 					</button>
+				// 				))}
+				// 			</div>
+				// 		</div>
+				// 	) : (
+				// 		<div className='text-white'>ทำข้อที่เหลือ</div>
+				// 	)}
+				// </div>
 			)}
 		</div>
 	);
