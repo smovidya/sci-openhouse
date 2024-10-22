@@ -5,13 +5,12 @@ import {
 } from '../components/ui/elements/questions';
 import { useEffect, useState } from 'react';
 import { Result } from './result';
-
 const Question = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); //เก็บ index ข้อปัจจุบัน
 	const [selectedOption, setSelectedOption] = useState(-1); //เก็บ index of selected choice
 	const [finishedSai, setFinishedSai] = useState(false); //เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
 	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1)); //list คำตอบทั้งหมด(index)
-	const [, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
+	const [sai, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
 
 	//set answer ทุกครั้งหลังทำแต่ละข้อเสร็จ
 	useEffect(() => {
@@ -108,38 +107,13 @@ const Question = () => {
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
-						Back
+						Back ,{sai}
 					</Button>
 				</div>
 			) : (
-				<Result />
-				// <div className="bg-question text-yellow-300">
-				// 	{sai}	{/* สายยังผิดอยู่ */}
-				// 	{sai === -1 ? (
-				// 		<div>
-				// 			<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
-				// 				QUESTION {currentQuestion + 1}
-				// 			</div>
-				// 			<div className="space-y-4">
-				// 				{qSaiExtra[0].choices.map((choices, index) => (
-				// 					<button
-				// 						key={index}
-				// 						onClick={() => setSelectedOption(index)}
-				// 						className={`w-full p-2 border rounded-md ${
-				// 							qSaiExtra[0].choices[selectedOption] === choices
-				// 								? 'bg-blue-500 text-white'
-				// 								: 'bg-gray-200'
-				// 						}`}
-				// 					>
-				// 						{choices}
-				// 					</button>
-				// 				))}
-				// 			</div>
-				// 		</div>
-				// 	) : (
-				// 		<div className='text-white'>ทำข้อที่เหลือ</div>
-				// 	)}
-				// </div>
+				<>
+				<Result sai={sai} /> 
+				</>
 			)}
 		</div>
 	);
