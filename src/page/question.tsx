@@ -4,7 +4,10 @@ import {
 	// questionsSaiExtra as qSaiExtra,
 } from '../components/ui/elements/questions';
 import { useEffect, useState } from 'react';
-import { Result } from './result';
+// import { Result } from './result';
+import { useSetAtom } from 'jotai';
+import { page, mySai } from '../app'; // Adjust the import path to your atom file
+
 const Question = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); //เก็บ index ข้อปัจจุบัน
 	const [selectedOption, setSelectedOption] = useState(-1); //เก็บ index of selected choice
@@ -27,6 +30,7 @@ const Question = () => {
 		} else {
 			// console.log(answers);
 			setFinishedSai(true);
+			handleResult(sai)
 		}
 	};
 
@@ -73,6 +77,14 @@ const Question = () => {
 			setCurrentQuestion(currentQuestion - 1);
 		}
 	};
+	const setPage = useSetAtom(page); // Get the setter for the atom
+	const setMySai = useSetAtom(mySai);
+
+	const handleResult = (sai:number) => {
+		console.log ("sai :"+sai)
+		setPage('result');
+		setMySai(sai);
+	};
 
 	return (
 		<div>
@@ -107,11 +119,12 @@ const Question = () => {
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
-						Back ,{sai}
+						Back
 					</Button>
 				</div>
 			) : (
-				<Result sai={sai} />
+				// <Result sai={sai} />
+				<div></div>
 			)}
 		</div>
 	);
