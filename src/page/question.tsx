@@ -83,7 +83,7 @@ const Question = () => {
 	const handleResult = (sai:number) => {
 		console.log ("sai :"+sai)
 		setPage('result');
-		setMySai(sai);
+		setMySai(5);
 	};
 
 	return (
