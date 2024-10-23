@@ -111,9 +111,7 @@ const Question = () => {
 					</Button>
 				</div>
 			) : (
-				<>
-				<Result sai={sai} /> 
-				</>
+				<Result sai={sai} />
 			)}
 		</div>
 	);
