@@ -4,21 +4,13 @@ import {
 	// questionsSaiExtra as qSaiExtra,
 } from '../components/ui/elements/questions';
 import { useEffect, useState } from 'react';
-import { useSetAtom } from 'jotai';
-import { page } from '../app'; // Adjust the import path to your atom file
-
+import { Result } from './result';
 const Question = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); //เก็บ index ข้อปัจจุบัน
 	const [selectedOption, setSelectedOption] = useState(-1); //เก็บ index of selected choice
 	const [finishedSai, setFinishedSai] = useState(false); //เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
 	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1)); //list คำตอบทั้งหมด(index)
-	const [, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
-	const setPage = useSetAtom(page); // Get the setter for the atom
-	//เปลี่ยนสถานะหน้า Home
-	const handleResult = () => {
-		setPage('result');
-		return <div></div>
-	};
+	const [sai, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
 
 	//set answer ทุกครั้งหลังทำแต่ละข้อเสร็จ
 	useEffect(() => {
@@ -68,6 +60,7 @@ const Question = () => {
 					// console.log(-1)
 				}
 			};
+
 			cntHightestSai(answers); // Call the function to calculate the highest SAI
 		}
 	}, [finishedSai, answers]); // Only run when the quiz is finished
@@ -114,13 +107,11 @@ const Question = () => {
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
-						Back
+						Back ,{sai}
 					</Button>
 				</div>
 			) : (
-				<div>
-					{handleResult()}
-				</div>
+				<Result sai={sai} />
 			)}
 		</div>
 	);
