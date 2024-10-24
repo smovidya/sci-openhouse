@@ -123,11 +123,11 @@ const Result: FC<ResultProps> = ({ sai }) => {
 				<div className="flex items-center justify-center gap-2 mb-4">
 					<Circle size={150} className="fill-red-400" stroke="noen" />
 					<div className="flex-col w-[56%] items-center text-white">
-						<p className="font-bold text-[20px]">{data.department}</p>
-						<p className="font-medium text-[16px]">{data.quote}</p>
+						<p className="font-ibm-plex-thai font-bold text-[20px]">{data.department}</p>
+						<p className="font-ibm-plex-thai font-medium text-[16px]">{data.quote}</p>
 					</div>
 				</div>
-				<p className="font-medium text-[16px] text-white">{data.explain}</p>
+				<p className="font-ibm-plex-thai font-medium text-[16px] text-white">{data.explain}</p>
 				<div className="flex self-center mt-4">
 					<Sponser />
 				</div>
