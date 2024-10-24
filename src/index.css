@@ -6,16 +6,26 @@
 @tailwind utilities;
 
 @layer base {
-	Body {
+	/* Body {
 		background-image: url('../assets/QuestionBG.svg');
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-position: center;
 		background-size: cover;
+		background-position: center;
 		width: 100vw;
 		height: 100vh;
-		margin: auto;
-	}
+		padding-left: 40px;
+		padding-right: 40px;
+		padding-top: 80px;
+		background-repeat: no-repeat;
+		position: absolute;
+		left: 50%;
+		z-index: -50;
+		display: flex;
+		min-height: 100dvh;
+		width: 100%;
+		max-width: 28rem;
+		overflow: hidden;
+		transform: translateX(-50%);
+	} */
 	@font-face {
 		font-family: 'SilverStone-Regular';
 		font-style: normal;
@@ -138,12 +148,19 @@
 		background-image: url('../assets/HomeBG.svg');
 		background-size: cover;
 		background-position: center;
-		height: 100vh;
-		width: 100vw;
 		padding-left: 40px;
 		padding-right: 40px;
 		padding-top: 80px;
 		background-repeat: no-repeat;
+		position: absolute;
+		left: 50%;
+		z-index: -50;
+		display: flex;
+		min-height: 100dvh;
+		width: 100%;
+		max-width: 28rem;
+		overflow: hidden;
+		transform: translateX(-50%);
 	}
 	.bg-login {
 		background-image: url('../assets/LoginBG.svg');
@@ -155,17 +172,34 @@
 		padding-right: 40px;
 		padding-top: 80px;
 		background-repeat: no-repeat;
+		position: absolute;
+		left: 50%;
+		z-index: -50;
+		display: flex;
+		min-height: 100dvh;
+		width: 100%;
+		max-width: 28rem;
+		overflow: hidden;
+		transform: translateX(-50%);
 	}
 	.bg-question {
 		background-image: url('../assets/QuestionBG.svg');
-		/* background-color: #00193c; */
 		background-size: cover;
 		background-position: center;
 		width: 100vw;
 		height: 100vh;
 		padding-left: 40px;
 		padding-right: 40px;
-		padding-top: 80px;
+		padding-top: 40px;
 		background-repeat: no-repeat;
+		position: absolute;
+		left: 50%;
+		z-index: -50;
+		display: flex;
+		min-height: 100dvh;
+		width: 100%;
+		max-width: 28rem;
+		overflow: hidden;
+		transform: translateX(-50%);
 	}
 }

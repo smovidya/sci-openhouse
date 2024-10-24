@@ -1,14 +1,14 @@
 import { atom } from 'jotai';
 import { useAtomValue } from 'jotai';
 import { Home } from './page/home';
-import React from 'react';
 import { Login } from './page/login';
 import { Question } from './page/question';
-// import { Result } from './page/result';
+import { Result } from './page/result';
 
 const App = () => {
 	const pageValue = useAtomValue(page);
-	const handlePage = (pageValue: string) => {
+	const mySaiValue = useAtomValue(mySai);
+	const handlePage = (pageValue: string, mySaiValue:number) => {
 		switch (pageValue) {
 			case 'home':
 				return <Home />;
@@ -16,17 +16,15 @@ const App = () => {
 				return <Login />;
 			case 'question':
 				return <Question />;
+			case 'result':
+				return <Result sai={mySaiValue}/>;
 		}
 	};
 
-	// Log the value whenever the component renders
-	React.useEffect(() => {
-		console.log(pageValue);
-	}, [pageValue]);
-
-	return <div>{handlePage(pageValue)}</div>;
+	return <div>{handlePage(pageValue,mySaiValue)}</div>;
 };
 
 const page = atom('home');
+const mySai =atom(-1);
 
-export { page, App };
+export { page, mySai, App };
