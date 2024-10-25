@@ -207,7 +207,7 @@
 		background-size: cover;
 		background-position: center;
 		max-width: 440px;
-		height: 100svh;
+		height: 100dvh;
 		overflow: hidden;
     	display: flex;
     	justify-content: center;

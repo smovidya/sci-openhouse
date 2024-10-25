@@ -45,8 +45,8 @@ const Result: FC<ResultProps> = ({ sai }) => {
 					src={Data.imagePath}
 					alt={`${Data.name}`} />
 				<p className="font-bold text-[16px] uppercase">{Data.name}</p>
-				<p className="font-medium text-[8px] indent-8">{Data.quote}</p>
-				<p className="font-medium text-[8px] indent-8">{Data.explanation}</p>
+				<p className="font-medium text-[12px] indent-8">{Data.quote}</p>
+				<p className="font-medium text-[12px] indent-8">{Data.explanation}</p>
 				<div className="flex self-center">
 					<Sponser />
 				</div>
