@@ -23,19 +23,19 @@ const Result: FC<ResultProps> = ({ sai }) => {
 		return
 	}
 	return (
-		<div className=" flex relative justify-center h-dvh items-center  ">
+		<div className="bg-mobile flex relative justify-center items-center">
 			<div
 				key={Data.sai}
-				className="flex flex-col items-center text-white rounded-[30px] h-dvw w-[380px] gap-2 h-fit px-6 py-8 border-4 border-Yellow bg-gradient-to-b from-black via-[#172854] to-[#000102] relative">
+				className="flex flex-col items-center justify-between font-ibm-plex-thai text-white rounded-[30px] h-[90%]  w-[90%] px-4 py-4 border-4 border-Yellow bg-gradient-to-b from-black via-[#172854] to-[#000102] relative">
 				<img
 					src={Sun}
 					alt="sun"
 					className="absolute overflow-hidden min-w-[630px] h-auto top-[-200px] right-[-310px]" />
 				<div className="flex flex-col mb-6">
-					<p className="font-SilverStone-Regular text-[48px] text-Yellow text-center">
+					<p className="font-SilverStone-Regular text-[56px] text-Yellow text-center">
 						SCIASTRAL
 					</p>
-					<p className="font-SilverStone-Regular text-[24px] text-Yellow text-center uppercase">
+					<p className="font-SilverStone-Regular text-[32px] text-Yellow text-center uppercase">
 						scichula open house
 					</p>
 				</div>
@@ -47,22 +47,17 @@ const Result: FC<ResultProps> = ({ sai }) => {
 				<p className="font-bold text-[20px] uppercase">{Data.name}</p>
 				<p className="font-medium text-[16px] indent-8">{Data.quote}</p>
 				<p className="font-medium text-[16px] indent-8">{Data.explanation}</p>
-				<div className="flex self-center mt-4">
+				<div className="flex self-center">
 					<Sponser />
 				</div>
-				<div className='flex justify-center items-center gap-4 mt-4'>
-					<div className='flex-grow border-t-2 border-white'></div>
-					<p className=' text-[16px] text-white uppercase'>download image</p>
-					<div className='flex-grow border-t-2 border-white'></div>
-				</div>
-
 				<Button variant={'outline'}
 					onClick={() => {
 						console.log('Button clicked!');
 						downloadImageFromURL(`/assets/share-image/${Data.name}.png`, `${Data.name}`);
 					}}
-					className='flex justify-center items-center bg-transparent bg-Yellow hover:bg-yellow-100 self-center w-full'>
-					<Download />
+					className='flex justify-center items-center gap-2 bg-transparent bg-Yellow hover:bg-yellow-200 self-center w-full'>
+					<Download className='' />
+					<p className='text-[16px]'>Download Image</p>
 				</Button>
 			</div>
 		</div>

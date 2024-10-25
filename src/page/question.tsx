@@ -30,7 +30,7 @@ const Question = () => {
 		} else {
 			// console.log(answers);
 			setFinishedSai(true);
-			handleResult(sai)
+			handleResult(5)
 		}
 	};
 

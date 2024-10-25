@@ -202,4 +202,16 @@
 		overflow: hidden;
 		transform: translateX(-50%);
 	}
+	.bg-mobile {
+		background-image: url('background.png');
+		background-size: cover;
+		background-position: center;
+		max-width: 440px;
+		height: 100svh;
+		overflow: hidden;
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	margin: 0 auto;      
+	}
 }
