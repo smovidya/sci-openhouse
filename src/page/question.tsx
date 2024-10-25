@@ -1,9 +1,9 @@
 import { Button } from '../components/ui/button';
 import {
 	questionsSai as qSai,
-	// questionsSaiExtra as qSaiExtra,
+	questionsSaiExtra as qSaiExtra,
 } from '../components/ui/elements/questions';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 // import { Result } from './result';
 import { useSetAtom } from 'jotai';
 import { page, mySai } from '../app'; // Adjust the import path to your atom file
@@ -11,32 +11,15 @@ import { page, mySai } from '../app'; // Adjust the import path to your atom fil
 const Question = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); //เก็บ index ข้อปัจจุบัน
 	const [selectedOption, setSelectedOption] = useState(-1); //เก็บ index of selected choice
-	const [finishedSai, setFinishedSai] = useState(false); //เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
-	const [answers, setAnswers] = useState<number[]>(Array(qSai.length).fill(-1)); //list คำตอบทั้งหมด(index)
-	const [sai, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
-
-	//set answer ทุกครั้งหลังทำแต่ละข้อเสร็จ
-	useEffect(() => {
-		const newAnswers = [...answers];
-		newAnswers[currentQuestion] = selectedOption;
-		setAnswers(newAnswers);
-	}, [currentQuestion, selectedOption]);
+	const [isFinished, setIsFinished] = useState(false); //เก็บสถานะว่าตอบคำถาม 5 ข้อแรกเสร็จยัง(5 ข้อแรกเป็นคำถามเลือกสาย)
+	const [answers, setAnswers] = useState<number[]>(Array(6).fill(-1)); //list คำตอบทั้งหมด(index)
+	const [, setSai] = useState(-1); //เก็บ index ของสายที่ได้ อิงตามใน docs
 
 	//ไปข้อถัดไป
-	const handleNext = () => {
-		if (currentQuestion < qSai.length - 1) {
-			setCurrentQuestion(currentQuestion + 1);
-			setSelectedOption(-1);
-		} else {
-			// console.log(answers);
-			setFinishedSai(true);
-			handleResult(5)
-		}
-	};
-
-	//หาว่าได้สายยัง โดยได้สายเมื่อมีเพียงหนึ่งสายที่ถูกเลือกมากสุด
-	useEffect(() => {
-		if (finishedSai) {
+	const handleNext = (option: number) => {
+		setAnswers((prevAnswers) => {
+			const newAnswers = [...prevAnswers];
+			newAnswers[currentQuestion] = option;
 			const cntHightestSai = (answers: number[]) => {
 				const freqMap: Record<number, number> = {};
 
@@ -58,16 +41,21 @@ const Question = () => {
 				// Check if there is only one most frequent answer
 				if (mostFrequent.length === 1) {
 					setSai(mostFrequent[0]); // Set sai to the most frequent answer
-					// console.log(mostFrequent[0])
+					handleResult(mostFrequent[0]);
 				} else {
-					setSai(-1); // Indicate a tie or no clear most frequent answer
+					setIsFinished(true);
 					// console.log(-1)
 				}
 			};
-
-			cntHightestSai(answers); // Call the function to calculate the highest SAI
-		}
-	}, [finishedSai, answers]); // Only run when the quiz is finished
+			setSelectedOption(-1);
+			if (currentQuestion < qSai.length - 1) {
+				setCurrentQuestion(currentQuestion + 1);
+			} else {
+				cntHightestSai(newAnswers);
+			}
+			return newAnswers;
+		});
+	};
 
 	//ไปข้อก่อนหน้า
 	const handlePrevious = () => {
@@ -80,15 +68,15 @@ const Question = () => {
 	const setPage = useSetAtom(page); // Get the setter for the atom
 	const setMySai = useSetAtom(mySai);
 
-	const handleResult = (sai:number) => {
-		console.log ("sai :"+sai)
+	const handleResult = (sai: number) => {
+		console.log('sai :' + sai);
 		setPage('result');
-		setMySai(sai);
+		setMySai(5);
 	};
 
 	return (
 		<div>
-			{!finishedSai ? (
+			{!isFinished && (
 				<div className="bg-question flex flex-col">
 					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						QUESTION {currentQuestion + 1}
@@ -101,8 +89,7 @@ const Question = () => {
 							<button
 								key={index}
 								onClick={() => {
-									setSelectedOption(index);
-									handleNext();
+									handleNext(index);
 								}}
 								className={`w-full p-3 rounded-md font-ibm-plex-thai ${
 									qSai[currentQuestion].choices[selectedOption] === choices
@@ -122,9 +109,40 @@ const Question = () => {
 						Back
 					</Button>
 				</div>
-			) : (
-				// <Result sai={sai} />
-				<div></div>
+			)}
+			{isFinished && (
+				<div className="bg-question flex flex-col">
+					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
+						QUESTION {6}
+					</div>
+					<div className="text-lg mb-6 text-Yellow font-ibm-plex-thai">
+						{qSaiExtra[0].question}
+					</div>
+					<div className="space-y-4 mb-4">
+						{qSaiExtra[0].choices.map((choices, index) => (
+							<button
+								key={index}
+								onClick={() => {
+									handleNext(index);
+								}}
+								className={`w-full p-3 rounded-md font-ibm-plex-thai ${
+									qSaiExtra[0].choices[selectedOption] === choices
+										? 'bg-gray-400 text-white'
+										: 'bg-gray-200'
+								}`}
+							>
+								{choices}
+							</button>
+						))}
+					</div>
+					<Button
+						onClick={handlePrevious}
+						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
+						disabled={currentQuestion === 0}
+					>
+						Back
+					</Button>
+				</div>
 			)}
 		</div>
 	);
