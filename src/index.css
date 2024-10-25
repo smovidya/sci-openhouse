@@ -6,6 +6,7 @@
 @tailwind utilities;
 
 @layer base {
+
 	/* Body {
 		background-image: url('../assets/QuestionBG.svg');
 		background-size: cover;
@@ -144,6 +145,7 @@
 		font-weight: 700;
 		font-style: normal;
 	}
+
 	.bg-home {
 		background-image: url('../assets/HomeBG.svg');
 		background-size: cover;
@@ -162,6 +164,7 @@
 		overflow: hidden;
 		transform: translateX(-50%);
 	}
+
 	.bg-login {
 		background-image: url('../assets/LoginBG.svg');
 		background-size: cover;
@@ -182,6 +185,7 @@
 		overflow: hidden;
 		transform: translateX(-50%);
 	}
+
 	.bg-question {
 		background-image: url('../assets/QuestionBG.svg');
 		background-size: cover;
@@ -202,16 +206,18 @@
 		overflow: hidden;
 		transform: translateX(-50%);
 	}
+
 	.bg-mobile {
-		background-image: url('background.png');
+		background-image: url('/background.webp');
 		background-size: cover;
 		background-position: center;
 		max-width: 440px;
-		height: 100dvh;
+		height: 100lvh;
 		overflow: hidden;
-    	display: flex;
-    	justify-content: center;
-    	align-items: center;
-    	margin: 0 auto;      
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
 	}
+
 }
