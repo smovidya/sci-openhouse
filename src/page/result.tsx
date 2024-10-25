@@ -23,10 +23,10 @@ const Result: FC<ResultProps> = ({ sai }) => {
 		return
 	}
 	return (
-		<div className="bg-question flex relative justify-center items-center ">
+		<div className=" flex relative justify-center h-dvh items-center  ">
 			<div
 				key={Data.sai}
-				className="flex flex-col items-center text-white rounded-[30px] w-[340px] gap-2 h-fit px-6 py-8 border-4 border-Yellow bg-gradient-to-b from-black via-[#172854] to-[#000102] relative">
+				className="flex flex-col items-center text-white rounded-[30px] h-dvw w-[380px] gap-2 h-fit px-6 py-8 border-4 border-Yellow bg-gradient-to-b from-black via-[#172854] to-[#000102] relative">
 				<img
 					src={Sun}
 					alt="sun"
@@ -44,9 +44,9 @@ const Result: FC<ResultProps> = ({ sai }) => {
 					height={140}
 					src={Data.imagePath}
 					alt={`${Data.name}`} />
-				<p className="font-bold text-[20px]">{Data.name}</p>
-				<p className="font-medium text-[16px]">{Data.quote}</p>
-				<p className="font-medium text-[16px] ">{Data.explanation}</p>
+				<p className="font-bold text-[20px] uppercase">{Data.name}</p>
+				<p className="font-medium text-[16px] indent-8">{Data.quote}</p>
+				<p className="font-medium text-[16px] indent-8">{Data.explanation}</p>
 				<div className="flex self-center mt-4">
 					<Sponser />
 				</div>
@@ -59,7 +59,7 @@ const Result: FC<ResultProps> = ({ sai }) => {
 				<Button variant={'outline'}
 					onClick={() => {
 						console.log('Button clicked!');
-						downloadImageFromURL('math-com.png', 'aasd');
+						downloadImageFromURL(`/assets/share-image/${Data.name}.png`, `${Data.name}`);
 					}}
 					className='flex justify-center items-center bg-transparent bg-Yellow hover:bg-yellow-100 self-center w-full'>
 					<Download />
