@@ -32,7 +32,7 @@ const Result: FC<ResultProps> = ({ sai }) => {
 					alt="sun"
 					className="absolute overflow-hidden min-w-[630px] h-auto top-[-200px] right-[-310px]" />
 				<div className="flex flex-col mb-6">
-					<p className="font-SilverStone-Regular text-[56px] text-Yellow text-center">
+					<p className="font-SilverStone-Regular text-[48px] text-Yellow text-center">
 						SCIASTRAL
 					</p>
 					<p className="font-SilverStone-Regular text-[32px] text-Yellow text-center uppercase">
@@ -44,9 +44,9 @@ const Result: FC<ResultProps> = ({ sai }) => {
 					height={140}
 					src={Data.imagePath}
 					alt={`${Data.name}`} />
-				<p className="font-bold text-[20px] uppercase">{Data.name}</p>
-				<p className="font-medium text-[16px] indent-8">{Data.quote}</p>
-				<p className="font-medium text-[16px] indent-8">{Data.explanation}</p>
+				<p className="font-bold text-[16px] uppercase">{Data.name}</p>
+				<p className="font-medium text-[8px] indent-8">{Data.quote}</p>
+				<p className="font-medium text-[8px] indent-8">{Data.explanation}</p>
 				<div className="flex self-center">
 					<Sponser />
 				</div>
