@@ -27,7 +27,4 @@ const Sponser = () => {
 	);
 };
 
-export default Sponser;
-
-
 export { Sponser };
