@@ -66,4 +66,209 @@ const questionsSaiExtra = [
 	},
 ];
 
-export { questionsSai, questionsSaiExtra };
+const bioQuestion = [
+	{
+		id: 1,
+		question: 'งานอดิเรก',
+		choices: [
+			'เดินเล่นในสวน',
+			'เล่นดนตรี',
+			'จิบชายามว่าง',
+			'ถ่ายคอนเท้น',
+		],
+	},
+	{
+		id: 2,
+		question: 'พลังวิเศษ',
+		choices: [
+			'คุยกับสิ่งมีชีวิตได้ทุกชนิด',
+			'เสกสิ่งของที่ต้องการ',
+			'ฟื้นฟู/รักษาสิ่งมีชีวิต',
+			'ย่อ/ขยายร่าง',
+		],
+	},
+	{
+		id: 3,
+		question: 'หนังเรื่องที่ชอบ',
+		choices: [
+			'Zootopia',
+			'Scoopy doo',
+			'The incredibles',
+			'The smurfs',
+		],
+	},
+	{
+		id: 4,
+		question: 'สถานที่ที่สนใจที่สุด',
+		choices: [
+			'สวนสัตว์',
+			'สวนพฤกษชาติ',
+			'โรงบ่มไวน์',
+			'อุทยานน้ำพุร้อน',
+		],
+	},
+	{
+		id: 5,
+		question: 'เพลงที่ใช่ที่สุด',
+		choices: [
+			'17 - dept',
+			'พบรัก Ink',
+			'Pink - Blackbean',
+			'เพลงรัก - Three man down',
+		],
+	},
+];
+
+const phyQuestion = [
+	{
+		id: 1,
+		question: 'งานอดิเรก',
+		choices: [
+			'เล่นเกม',
+			'ถ่ายคอนเท้น',
+			'ร้องเพลง',
+			'อ่านหนังสือ',
+		],
+	},
+	{
+		id: 2,
+		question: 'พลังวิเศษ',
+		choices: [
+			'Teleport',
+			'อ่านใจคนได้',
+			'เปลี่ยนรูปร่าง',
+			'รู้อนาคต',
+		],
+	},
+	{
+		id: 3,
+		question: 'หนังเรื่องที่ชอบ',
+		choices: [
+			'Baymax',
+			'Elemental',
+			'Powerpuff Girl',
+			'Interstella',
+		],
+	},
+	{
+		id: 4,
+		question: 'สถานที่ที่สนใจที่สุด',
+		choices: [
+			'อินเตอร์เน็ตคาเฟ่',
+			'ชาบูแลป',
+			'ร้านเครื่องสำอาง',
+			'อุทยานดาราศาสตร์',
+		],
+	},
+	{
+		id: 5,
+		question: 'เพลงที่ใช่ที่สุด',
+		choices: [
+			'เพลงอนิเมะ',
+			'K-Pop',
+			'เพลงสากล',
+			'เพลงไทย',
+		],
+	},
+];
+
+const enviQuestion = [
+	{
+		id: 1,
+		question: 'งานอดิเรก',
+		choices: [
+			'เดินเล่นในสวน',
+			'ชมอควาเรียม',
+			'ปีนผา',
+		],
+	},
+	{
+		id: 2,
+		question: 'พลังวิเศษ',
+		choices: [
+			'ควบคุมสภาพอากาศ',
+			'คุยกับสัตว์',
+			'มองทะลุสิ่งของ',
+		],
+	},
+	{
+		id: 3,
+		question: 'หนังเรื่องที่ชอบ',
+		choices: [
+			'Wall E',
+			'SpongeBob Squarepants',
+			'Jurrassic Park',
+		],
+	},
+	{
+		id: 4,
+		question: 'สถานที่ที่สนใจที่สุด',
+		choices: [
+			'Amazon Rainforest',
+			'Maldives',
+			'Pompeii',
+		],
+	},
+	{
+		id: 5,
+		question: 'เพลงที่ใช่ที่สุด',
+		choices: [
+			'หมวกเมฆสีรุ้ง - yew',
+			'วาฬเกยตื้น',
+			'ภูเขาบังเส้นผม - stamp',
+		],
+	},
+];
+
+const techQuestion = [
+	{
+		id: 1,
+		question: 'งานอดิเรก',
+		choices: [
+			'เล่นดนตรี',
+			'ทำอาหาร',
+			'ดูหนัง',
+			'ถ่ายรูป',
+			'อ่อกกำลังกาย',
+			'ดูดวง',
+		],
+	},
+	{
+		id: 2,
+		question: 'พลังวิเศษ',
+		choices: [
+			'อ่านใจคนได้',
+			'กินเท่าไหร่ก็ไม่อ้วน',
+			'ควบคุมสิ่งของ',
+			'หยุดเวลา',
+			'ฟื้นฟู/รักษาสิ่งมีชีวิต',
+			'รู้อนาคต',
+		],
+	},
+	{
+		id: 3,
+		question: 'หนังเรื่องที่ชอบ',
+		choices: [
+			'Megamind',
+			'Ratatouille',
+			'Elemental',
+			'Bolt',
+			'Jurrassic Park',
+			'Phineaus&Ferb',
+		],
+	},
+];
+const questionsExtra = [
+	{
+		id: 1,
+		question: 'เทพเจ้ากรีก/สัตว์ในเทพนิยาย',
+		choices: [
+			'Aphrodite',
+			'Dionysus',
+			'Demeter',
+			'Hermes',
+		],
+	},
+];
+
+export { questionsSai, questionsSaiExtra, bioQuestion, phyQuestion, enviQuestion, techQuestion, questionsExtra };

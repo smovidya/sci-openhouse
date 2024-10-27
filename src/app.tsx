@@ -2,8 +2,9 @@ import { atom } from 'jotai';
 import { useAtomValue } from 'jotai';
 import { Home } from './page/home';
 import { Login } from './page/login';
-import { Question } from './page/question';
+import { Question } from './page/sai';
 import { Result } from './page/result';
+import { Major } from './page/major';
 
 const App = () => {
 	const pageValue = useAtomValue(page);
@@ -16,6 +17,8 @@ const App = () => {
 				return <Login />;
 			case 'question':
 				return <Question />;
+			case 'major':
+				return <Major />;
 			case 'result':
 				return <Result sai={mySaiValue}/>;
 		}
