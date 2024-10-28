@@ -27,8 +27,9 @@ const Major: FC<SaiProps> = ({ sai }) => {
     const [mostFrequent, setMostFrequent] = useState<number[]>([]);
 
     const setPage = useSetAtom(page);
-    const setMySai = useSetAtom(mySai);
     const setMyMajor = useSetAtom(myMajor);
+    const setMySai = useSetAtom(mySai); // Set the "mySai" state
+
 
     // Determine the question set based on the sai value
     const [currentQuestionSet, setCurrentQuestionSet] = useState(bioQ);
@@ -69,18 +70,9 @@ const Major: FC<SaiProps> = ({ sai }) => {
             if (currentQuestion < currentQuestionSet.length - 1) {
                 setCurrentQuestion(currentQuestion + 1);
             } else {
-                console.log('Reached the last question. Current question set:', currentQuestionSet);
-                if (currentQuestionSet === techExtra) {
-                    console.log('Handling result for techExtra.');
-                    handleExtraResult(option);
-                } else if (currentQuestionSet === techSuperUltraSpecial) {
-                    console.log('Handling result for techSuperUltraSpecial.');
-                    handleSuperUltraSpecialResult(option);
-                } else {
                     console.log('Determining the highest sai.');
                     determineHighestSai(newAnswers);
                 }
-            }
 
             return newAnswers;
         });
@@ -114,10 +106,19 @@ const Major: FC<SaiProps> = ({ sai }) => {
 
         if (mostFrequent.length === 1) {
             handleResult(mostFrequent[0]);
-        } else {
-            console.log('Multiple frequent majors found. Filtering extra choices.');
+        } else if (mostFrequent.length === 2) {
+            console.log('Two frequent majors found. Switching to additional extra question set.');
+            setMyMajor(-1);
             filterExtraChoices(mostFrequent);
-        }
+            setIsFinished(true);
+        } else {
+            console.log('Sai 3 is coming');
+            setMyMajor(-1);
+            setCurrentQuestion(0)
+            setCurrentQuestionSet(techExtra);
+            console.log('currentQuestion', currentQuestion)
+            console.log('currentQuestionSet', currentQuestionSet)
+        } 
     };
 
     // Filter the extra question choices based on the most frequent sai values
@@ -129,24 +130,24 @@ const Major: FC<SaiProps> = ({ sai }) => {
         setExtraChoices(filteredChoices);
 
         // Check for specific conditions to switch question sets
-        if (sai === 3) {
-            if (mostFrequent.length === 3) {
-                console.log('Three most frequent majors detected. Switching to techExtra.');
-                setIsFinished(false); // Continue to question phase
-                setCurrentQuestionSet(techExtra);
-                setCurrentQuestion(0); // Reset to the first question in techExtra
-            } else if (mostFrequent.length > 1) {
-                console.log('Multiple most frequent majors detected. Switching to techSuperUltraSpecial.');
-                setIsFinished(false);
-                setCurrentQuestionSet(techSuperUltraSpecial);
-                setCurrentQuestion(0);
-            } else {
-                console.log('Single most frequent major detected. Finalizing results.');
-                setIsFinished(true);
-            }
-        } else {
-            setIsFinished(true);
-        }
+        // if (sai === 3) {
+        //     if (mostFrequent.length === 3) {
+        //         console.log('Three most frequent majors detected. Switching to techExtra.');
+        //         setIsFinished(false); // Continue to question phase
+        //         setCurrentQuestionSet(techExtra);
+        //         setCurrentQuestion(0); // Reset to the first question in techExtra
+        //     } else if (mostFrequent.length > 1) {
+        //         console.log('Multiple most frequent majors detected. Switching to techSuperUltraSpecial.');
+        //         setIsFinished(false);
+        //         setCurrentQuestionSet(techSuperUltraSpecial);
+        //         setCurrentQuestion(0);
+        //     } else {
+        //         console.log('Single most frequent major detected. Finalizing results.');
+        //         setIsFinished(true);
+        //     }
+        // } else {
+        //     setIsFinished(true);
+        // }
     };
 
     // Handle the extra question result
@@ -156,10 +157,10 @@ const Major: FC<SaiProps> = ({ sai }) => {
         handleResult(Number(selectedSai));
     };
 
-    const handleSuperUltraSpecialResult = (specialAnswer: number) => {
-        const selectedSai = extraChoices[specialAnswer]; // Use the selected choice to determine the sai
-        handleResult(Number(selectedSai));
-    };
+    // const handleSuperUltraSpecialResult = (specialAnswer: number) => {
+    //     const selectedSai = extraChoices[specialAnswer]; // Use the selected choice to determine the sai
+    //     handleResult(Number(selectedSai));
+    // };
 
     const handlePreviousToSai = () => {
         setIsFinished(false);
@@ -266,16 +267,12 @@ const Major: FC<SaiProps> = ({ sai }) => {
                             (choice, index) => (
                                 <button
                                     key={index}
-                                    onClick={() =>
-                                        currentQuestionSet === techSuperUltraSpecial
-                                            ? handleSuperUltraSpecialResult(index)
-                                            : handleNext(index)
-                                    }
-                                    className={`w-full p-3 rounded-md font-ibm-plex-thai ${
-                                        selectedOption === index
-                                            ? 'bg-gray-400 text-white'
-                                            : 'bg-gray-200'
-                                    }`}
+                                    onClick={() => handleNext(index)}
+								className={`w-full p-3 rounded-md font-ibm-plex-thai ${
+									selectedOption === index
+										? 'bg-gray-400 text-white'
+										: 'bg-gray-200'
+								}`}
                                 >
                                     {choice}
                                 </button>
