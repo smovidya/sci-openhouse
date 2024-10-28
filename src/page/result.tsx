@@ -1,5 +1,5 @@
 import { Sponser } from '../components/ui/elements/sponser';
-import Sun from '/assets/sun.svg';
+import { Header } from '../components/ui/elements/header';
 import { Download } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { FC } from 'react';
@@ -23,41 +23,36 @@ const Result: FC<ResultProps> = ({ major: major }) => {
 		return
 	}
 	return (
-		<div className="bg-mobile flex relative justify-center items-center">
+		<div className="bg-mobile flex justify-center items-center min-h-fit">
 			<div
 				key={Data.major}
-				className="flex flex-col items-center justify-between font-ibm-plex-thai text-white rounded-[30px] h-[90%]  w-[90%] px-4 py-4 border-4 border-Yellow bg-gradient-to-b from-black via-[#172854] to-[#000102] relative">
-				<img
-					src={Sun}
-					alt="sun"
-					className="absolute overflow-hidden min-w-[630px] h-auto top-[-200px] right-[-310px]" />
-				<div className="flex flex-col mb-6">
-					<p className="font-SilverStone-Regular text-[48px] text-Yellow text-center">
-						SCIASTRAL
-					</p>
-					<p className="font-SilverStone-Regular text-[32px] text-Yellow text-center uppercase">
-						scichula open house
-					</p>
-				</div>
-				<img className='h-[140px]'
+				className="flex flex-col gap-4 items-center justify-between font-ibm-plex-thai text-white min-h-[90%] rounded-[30px] h-fit w-[90%] px-4 py-4 my-4 border-4 border-Yellow"
+				style={{ background: 'linear-gradient(180deg, #000 0%, #16155D 38%, #000 70%)' }}>
+				<Header />
+				<img className='h-[160px] my-[-10px] z-10'
 					src={Data.imagePath}
 					alt={`${Data.name}`} />
-				<p className="font-bold text-[16px] uppercase">{Data.name}</p>
-				<p className="font-medium text-[1rem] indent-8">{Data.quote}</p>
-				<p className="font-medium text-[1rem] indent-8">{Data.explanation}</p>
+				<div className='z-10'>
+					<p className="text-4xl font-SilverStone-Regular text-center lowercase">{Data.name}</p>
+					<p className="text-[1rem] indent-8 py-2">{Data.quote}</p>
+					<p className="text-[1rem] indent-8">{Data.explanation}</p>
+				</div>
 				<div className="flex self-center">
 					<Sponser />
 				</div>
 				<Button variant={'outline'}
 					onClick={() => {
 						console.log('Button clicked!');
-						downloadImageFromURL(`/assets/share-image/${Data.name}.png`, `${Data.name}`);
+						downloadImageFromURL(`/assets/share-img/${Data.name}.png`, `${Data.name}`);
 					}}
-					className='flex justify-center items-center gap-2 bg-transparent bg-Yellow hover:bg-yellow-200 self-center w-full'>
+					className='flex justify-center items-center gap-2 bg-transparent bg-Yellow hover:bg-yellow-500 self-center w-full'>
 					<Download className='' />
 					<p className='text-[16px]'>Download Image</p>
 				</Button>
+				<img src="/assets/heart.webp"
+					className='absolute z-1 top-[90px] w-[350px]' />
 			</div>
+
 		</div>
 	)
 };
