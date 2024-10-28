@@ -1,5 +1,5 @@
-import { useAtom, useSetAtom } from 'jotai';
-import { mySai, myMajor, page } from '../app';
+import { useSetAtom } from 'jotai';
+import { myMajor, page } from '../app';
 import { FC, useState, useEffect } from 'react';
 import {
     bioQuestion as bioQ,
@@ -27,7 +27,7 @@ const Major: FC<SaiProps> = ({ sai }) => {
     const [mostFrequent, setMostFrequent] = useState<number[]>([]);
 
     const setPage = useSetAtom(page);
-    const setMySai = useSetAtom(mySai);
+    //const setMySai = useSetAtom(mySai);
     const setMyMajor = useSetAtom(myMajor);
 
     // Determine the question set based on the sai value
