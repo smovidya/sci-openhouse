@@ -259,9 +259,9 @@ const techQuestion = [
 	},
 ];
 
-const questionsExtra = [
+const bioExtra = [
 	{
-		id: 1,
+		id: 11,
 		question: 'เทพเจ้ากรีก/สัตว์ในเทพนิยาย',
 		choices: [
 			'Aphrodite',
@@ -272,4 +272,71 @@ const questionsExtra = [
 	},
 ];
 
-export { questionsSai, questionsSaiExtra, bioQuestion, phyQuestion, enviQuestion, techQuestion, questionsExtra };
+const phyExtra = [
+	{
+		id: 11,
+		question: 'เทพเจ้ากรีก/สัตว์ในเทพนิยาย',
+		choices: [
+			'Athena',
+			'Zeus',
+			'Aphrodite',
+			'Apollo',
+		],
+	},
+];
+
+const enviExtra = [
+	{
+		id: 11,
+		question: 'เทพเจ้ากรีก/สัตว์ในเทพนิยาย',
+		choices: [
+			'Diana',
+			'Poseidon',
+			'Gaia',
+		],
+	},
+];
+
+const techExtra = [
+	{
+		id: 9,
+		question: 'สถานที่ที่สนใจที่สุด',
+		choices: [
+			'แท่นขุดเจาะน้ำมัน',
+			'บรรทัดทอง',
+			'IKEA',
+			'Art gallery',
+			'สวนพฤกษชาติ',
+			'โรงบ่มไวน์',
+		],
+	},
+	{
+		id: 10,
+		question: 'เพลงที่ใช่ที่สุด',
+		choices: [
+			'ธาตุทองซาวด์ - youngohm',
+			'ขาหมู - tatoo colour',
+			'ฮัม - plastic plastic',
+			'รูปถ่าย - qler',
+			'เด็กอินเตอร์ - youngohm',
+			'New Woman',
+		],
+	},
+];
+
+const techSuperUltraSpecial = [
+	{
+		id: 11,
+		question: 'เทพเจ้ากรีก/สัตว์ในเทพนิยาย',
+		choices: [
+			'Athena',
+			'Demeter',
+			'Hephaetus',
+			'Aether',
+			'Asclepius',
+			'Jahus',
+		],
+	},
+];
+
+export { questionsSai, questionsSaiExtra, bioQuestion, phyQuestion, enviQuestion, techQuestion, bioExtra, phyExtra, enviExtra, techExtra, techSuperUltraSpecial };
