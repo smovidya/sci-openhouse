@@ -192,15 +192,17 @@
 		background-position: center;
 		max-width: 440px;
 		height: 100lvh;
-		overflow: hidden;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: 0 auto;
 		padding-left: 40px;
 		padding-right: 40px;
 		padding-top: 40px;
 		background-repeat: no-repeat;
+		position: absolute;
+		left: 50%;
+		z-index: -50;
+		display: flex;
+		min-height: 100dvh;
+		overflow: hidden;
+		transform: translateX(-50%);
 	}
 
 	.bg-mobile {

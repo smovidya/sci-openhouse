@@ -3,7 +3,7 @@ const HeaderHome = () => {
 		<div className="h-56 pt-8  max-w-[340px] rounded-md flex-col justify-center items-center gap-[18px] inline-flex">
 			<img
 				src="./fonts/head.svg"
-				alt="sun"
+				alt="head"
 			/>
 			<div className="text-[#f9cd2f] mt-[-30px] text-4xl font-normal font-SilverStone-Regular leading-9">
 				sci chula open house
@@ -20,7 +20,7 @@ const Header = () => {
 		<div className="z-10 max-w-[340px] rounded-md flex-col justify-center items-center gap-[18px] inline-flex">
 			<img
 				src="./fonts/head.svg"
-				alt="sun"
+				alt="head"
 			/>
 			<div className="text-[#f9cd2f] mt-[-30px] text-4xl font-normal font-SilverStone-Regular leading-9">
 				sci chula open house

@@ -19,19 +19,19 @@ const Home = () => {
 			onClick={handleLogin}>
 			<div className="flex flex-col items-center font-ibm-plex-thai text-white rounded-[30px] h-[92%] w-[90%] px-4 py-4 border-4 border-Yellow bg-gradient-to-b">
 				<div className='flex flex-col justify-center items-center'>
-					<img className="w-24 h-24" src="../assets/logo white-border-yellow.svg" />
+					<img className="w-24 h-24" src="/assets/logo white-border-yellow.svg" />
 					<HeaderHome />
 					<p className="mt-10 text-center text-Yellow text-3xl font-SilverStone-Regular uppercase leading-7">
 						Click to continue
 					</p>
-					<div className='mt-20'>
+					<div className='mt-20 z-10'>
 						<Sponser />
 					</div>
 				</div>
 				<img
 					src={Butterfly}
 					alt="sun"
-					className="absolute overflow-hidden min-w-[530px] h-auto rotate-45 left-[-180px] bottom-[-150px]" />
+					className="absolute overflow-hidden min-w-[530px] h-auto rotate-45 left-[-180px] bottom-[-150px] z-1" />
 			</div>
 		</div>
 	);

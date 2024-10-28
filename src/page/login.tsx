@@ -21,7 +21,7 @@ const Login = () => {
 
 				<img
 					className="w-24 h-24 mt-1 mb-[-21px]"
-					src="../assets/logo white-border-yellow.svg" />
+					src="/assets/logo white-border-yellow.svg" />
 				<div className='pt-[62px]'>
 					<Header /></div>
 				<div className="flex flex-col ">

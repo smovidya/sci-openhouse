@@ -43,7 +43,7 @@ const Result: FC<ResultProps> = ({ major: major }) => {
 				<Button variant={'outline'}
 					onClick={() => {
 						console.log('Button clicked!');
-						downloadImageFromURL(`/assets/share-image/${Data.name}.png`, `${Data.name}`);
+						downloadImageFromURL(`/assets/share-img/${Data.name}.png`, `${Data.name}`);
 					}}
 					className='flex justify-center items-center gap-2 bg-transparent bg-Yellow hover:bg-yellow-500 self-center w-full'>
 					<Download className='' />
