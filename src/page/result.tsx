@@ -5,7 +5,7 @@ import { Button } from '../components/ui/button';
 import { FC } from 'react';
 import dataJson from '../deparment.json'
 type ResultProps = {
-	sai: number; // เพิ่ม prop sai
+	major: number; // เพิ่ม prop sai
 };
 
 const downloadImageFromURL = (imageUrl: string, fileName: string) => {
@@ -17,15 +17,15 @@ const downloadImageFromURL = (imageUrl: string, fileName: string) => {
 	document.body.removeChild(link);
 };
 
-const Result: FC<ResultProps> = ({ sai }) => {
-	const Data = dataJson.find(department => department.sai === sai);
+const Result: FC<ResultProps> = ({ major: major }) => {
+	const Data = dataJson.find(department => department.major === major);
 	if (!Data) {
 		return
 	}
 	return (
 		<div className="bg-mobile flex relative justify-center items-center">
 			<div
-				key={Data.sai}
+				key={Data.major}
 				className="flex flex-col items-center justify-between font-ibm-plex-thai text-white rounded-[30px] h-[90%]  w-[90%] px-4 py-4 border-4 border-Yellow bg-gradient-to-b from-black via-[#172854] to-[#000102] relative">
 				<img
 					src={Sun}
