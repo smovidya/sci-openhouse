@@ -20,7 +20,7 @@ const Sponser = () => {
 				<AvatarFallback>CN</AvatarFallback>
 			</Avatar>
 			<Avatar className="w-14 h-14">
-				<AvatarImage className="object-contain bg-white" src="assets/sponser/logo ManSome 1.png" alt="@shadcn" />
+				<AvatarImage className="object-contain bg-[#00447B]" src="assets/sponser/logo ManSome 1.png" alt="@shadcn" />
 				<AvatarFallback>CN</AvatarFallback>
 			</Avatar>
 		</div>
