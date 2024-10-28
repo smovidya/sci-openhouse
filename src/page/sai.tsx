@@ -1,4 +1,4 @@
-import { Button } from '../components/ui/button';
+// import { Button } from '../components/ui/button';
 import {
 	questionsSai as qSai,
 	questionsSaiExtra as qSaiExtra,
@@ -7,11 +7,11 @@ import { useState } from 'react';
 import { useSetAtom } from 'jotai';
 import { page, mySai } from '../app';
 
-const Question = () => {
+const Sai = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); // Track the current question index
 	const [selectedOption, setSelectedOption] = useState(-1); // Track the selected option index
 	const [isFinished, setIsFinished] = useState(false); // Indicate whether the first set of questions is completed
-	const [answers, setAnswers] = useState<number[]>(Array(6).fill(-1)); // Store all answers
+	const [ , setAnswers] = useState<number[]>(Array(6).fill(-1)); // Store all answers
 	const [mostFrequent, setMostFrequent] = useState<number[]>([]); // Track the most frequent "sai" values
 	const [extraChoices, setExtraChoices] = useState<string[]>([]); // Store filtered extra choices
 
@@ -36,13 +36,13 @@ const Question = () => {
 	};
 
 	// Navigate to the previous question
-	const handlePrevious = () => {
-		if (currentQuestion > 0) {
-			const previousAnswer = answers[currentQuestion - 1];
-			setSelectedOption(previousAnswer);
-			setCurrentQuestion(currentQuestion - 1);
-		}
-	};
+	// const handlePrevious = () => {
+	// 	if (currentQuestion > 0) {
+	// 		const previousAnswer = answers[currentQuestion - 1];
+	// 		setSelectedOption(previousAnswer);
+	// 		setCurrentQuestion(currentQuestion - 1);
+	// 	}
+	// };
 
 	// Determine the most frequent "sai" or handle tie cases
 	const determineHighestSai = (answers: number[]) => {
@@ -84,28 +84,32 @@ const Question = () => {
 		handleResult(saiValue);
 	};
 
-	const handlePreviousToSai = () => {
-		setIsFinished(false);
-		const previousAnswer = answers[4];
-		setSelectedOption(previousAnswer);
-		setCurrentQuestion(currentQuestion);
-	};
+	// const handlePreviousToSai = () => {
+	// 	setIsFinished(false);
+	// 	const previousAnswer = answers[4];
+	// 	setSelectedOption(previousAnswer);
+	// 	setCurrentQuestion(currentQuestion);
+	// };
 
 	// Set the result and navigate to the result page
 	const handleResult = (sai: number) => {
-		console.log('sai :' + sai);
-		setPage('major');
+		// console.log('sai :' + sai);
 		setMySai(sai);
+		if (sai === 3) {
+			setPage('tech');
+		} else {
+			setPage('major');
+		}
 	};
 
 	return (
 		<div>
 			{!isFinished && (
-				<div className="bg-question flex flex-col">
+				<div className="bg-question flex flex-col pt-32">
 					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						QUESTION {qSai[currentQuestion].id}
 					</div>
-					<div className="text-lg mb-6 text-Yellow font-ibm-plex-thai">
+					<div className="text-lg mb-6 text-Yellow font-ibm-plex-thai text-center">
 						{qSai[currentQuestion].question}
 					</div>
 					<div className="space-y-4 mb-4">
@@ -123,21 +127,21 @@ const Question = () => {
 							</button>
 						))}
 					</div>
-					<Button
+					{/* <Button
 						onClick={handlePrevious}
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
 						Back
-					</Button>
+					</Button> */}
 				</div>
 			)}
 			{isFinished && (
-				<div className="bg-question flex flex-col">
+				<div className="bg-question flex flex-col pt-32">
 					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						EXTRA QUESTION
 					</div>
-					<div className="text-lg mb-6 text-Yellow font-ibm-plex-thai">
+					<div className="text-lg mb-6 text-Yellow font-ibm-plex-thai text-center">
 						{qSaiExtra[0].question}
 					</div>
 					<div className="space-y-4 mb-4">
@@ -155,17 +159,17 @@ const Question = () => {
 							</button>
 						))}
 					</div>
-					<Button
+					{/* <Button
 						onClick={handlePreviousToSai}
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
 						Back
-					</Button>
+					</Button> */}
 				</div>
 			)}
 		</div>
 	);
 };
 
-export { Question };
+export { Sai };

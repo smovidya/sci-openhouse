@@ -5,14 +5,11 @@ import {
     bioQuestion as bioQ,
     phyQuestion as phyQ,
     enviQuestion as enviQ,
-    techQuestion as techQ,
     bioExtra as bioExtra,
     phyExtra as phyExtra,
     enviExtra as enviExtra,
-    techExtra as techExtra,
-    techSuperUltraSpecial as techSuperUltraSpecial,
 } from '../components/ui/elements/questions';
-import { Button } from '../components/ui/button';
+// import { Button } from '../components/ui/button';
 
 type SaiProps = {
     sai: number;
@@ -22,13 +19,13 @@ const Major: FC<SaiProps> = ({ sai }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedOption, setSelectedOption] = useState(-1);
     const [isFinished, setIsFinished] = useState(false);
-    const [answers, setAnswers] = useState<number[]>(Array(6).fill(-1));
+    const [ , setAnswers] = useState<number[]>(Array(6).fill(-1));
     const [extraChoices, setExtraChoices] = useState<string[]>([]);
     const [mostFrequent, setMostFrequent] = useState<number[]>([]);
 
     const setPage = useSetAtom(page);
-    //const setMySai = useSetAtom(mySai);
     const setMyMajor = useSetAtom(myMajor);
+
 
     // Determine the question set based on the sai value
     const [currentQuestionSet, setCurrentQuestionSet] = useState(bioQ);
@@ -48,10 +45,6 @@ const Major: FC<SaiProps> = ({ sai }) => {
                 setCurrentQuestionSet(enviQ);
                 setCurrentExtraSet(enviExtra);
                 break;
-            case 3:
-                setCurrentQuestionSet(techQ);
-                setCurrentExtraSet(techExtra);
-                break;
             default:
                 setCurrentQuestionSet(bioQ);
                 setCurrentExtraSet(bioExtra);
@@ -69,31 +62,22 @@ const Major: FC<SaiProps> = ({ sai }) => {
             if (currentQuestion < currentQuestionSet.length - 1) {
                 setCurrentQuestion(currentQuestion + 1);
             } else {
-                console.log('Reached the last question. Current question set:', currentQuestionSet);
-                if (currentQuestionSet === techExtra) {
-                    console.log('Handling result for techExtra.');
-                    handleExtraResult(option);
-                } else if (currentQuestionSet === techSuperUltraSpecial) {
-                    console.log('Handling result for techSuperUltraSpecial.');
-                    handleSuperUltraSpecialResult(option);
-                } else {
-                    console.log('Determining the highest sai.');
+                    // console.log('Determining the highest sai.');
                     determineHighestSai(newAnswers);
                 }
-            }
 
             return newAnswers;
         });
     };
 
-    // Navigate to the previous question
-    const handlePrevious = () => {
-        if (currentQuestion > 0) {
-            const previousAnswer = answers[currentQuestion - 1];
-            setSelectedOption(previousAnswer);
-            setCurrentQuestion(currentQuestion - 1);
-        }
-    };
+    // // Navigate to the previous question
+    // const handlePrevious = () => {
+    //     if (currentQuestion > 0) {
+    //         const previousAnswer = answers[currentQuestion - 1];
+    //         setSelectedOption(previousAnswer);
+    //         setCurrentQuestion(currentQuestion - 1);
+    //     }
+    // };
 
     // Determine the most frequent "sai" or handle tie cases
     const determineHighestSai = (answers: number[]) => {
@@ -109,64 +93,41 @@ const Major: FC<SaiProps> = ({ sai }) => {
             .filter((key) => freqMap[Number(key)] === maxFreq)
             .map(Number);
 
-        console.log('Most frequent majors:', mostFrequent);
+        // console.log('Most frequent majors:', mostFrequent);
         setMostFrequent(mostFrequent);
 
         if (mostFrequent.length === 1) {
             handleResult(mostFrequent[0]);
-        } else {
-            console.log('Multiple frequent majors found. Filtering extra choices.');
+        } else if (mostFrequent.length > 1) {
+            // console.log('Two frequent majors found. Switching to additional extra question set.');
+            setMyMajor(-1);
             filterExtraChoices(mostFrequent);
+            setIsFinished(true);
         }
     };
 
     // Filter the extra question choices based on the most frequent sai values
     const filterExtraChoices = (mostFrequent: number[]) => {
-        console.log('Filtering extra choices for:', mostFrequent);
+        // console.log('Filtering extra choices for:', mostFrequent);
         const filteredChoices = currentExtraSet[0].choices.filter((_, index) =>
             mostFrequent.includes(index)
         );
         setExtraChoices(filteredChoices);
-
-        // Check for specific conditions to switch question sets
-        if (sai === 3) {
-            if (mostFrequent.length === 3) {
-                console.log('Three most frequent majors detected. Switching to techExtra.');
-                setIsFinished(false); // Continue to question phase
-                setCurrentQuestionSet(techExtra);
-                setCurrentQuestion(0); // Reset to the first question in techExtra
-            } else if (mostFrequent.length > 1) {
-                console.log('Multiple most frequent majors detected. Switching to techSuperUltraSpecial.');
-                setIsFinished(false);
-                setCurrentQuestionSet(techSuperUltraSpecial);
-                setCurrentQuestion(0);
-            } else {
-                console.log('Single most frequent major detected. Finalizing results.');
-                setIsFinished(true);
-            }
-        } else {
-            setIsFinished(true);
-        }
     };
 
     // Handle the extra question result
     const handleExtraResult = (extraAnswer: number) => {
         const selectedSai = mostFrequent[extraAnswer]; // Use the selected choice to determine the sai
-        console.log('selectedSai :' + selectedSai);
+        // console.log('selectedSai :' + selectedSai);
         handleResult(Number(selectedSai));
     };
 
-    const handleSuperUltraSpecialResult = (specialAnswer: number) => {
-        const selectedSai = extraChoices[specialAnswer]; // Use the selected choice to determine the sai
-        handleResult(Number(selectedSai));
-    };
-
-    const handlePreviousToSai = () => {
-        setIsFinished(false);
-        const previousAnswer = answers[4];
-        setSelectedOption(previousAnswer);
-        setCurrentQuestion(currentQuestion);
-    };
+    // const handlePreviousToSai = () => {
+    //     setIsFinished(false);
+    //     const previousAnswer = answers[4];
+    //     setSelectedOption(previousAnswer);
+    //     setCurrentQuestion(currentQuestion);
+    // };
 
     // Set the result and navigate to the result page
     const handleResult = (index: number) => {
@@ -221,44 +182,20 @@ const Major: FC<SaiProps> = ({ sai }) => {
                     setMyMajor(-1);
                     break;
             }
-        } else if (sai === 3) {
-            switch (index) {
-                case 0:
-                    setMyMajor(12);
-                    break;
-                case 1:
-                    setMyMajor(13);
-                    break;
-                case 2:
-                    setMyMajor(14);
-                    break;
-                case 3:
-                    setMyMajor(15);
-                    break;
-                case 4:
-                    setMyMajor(16);
-                    break;
-                case 5:
-                    setMyMajor(17);
-                    break;
-                default:
-                    setMyMajor(-1);
-                    break;
-            }
         }
 
-        console.log('major :' + index);
+        // console.log('major :' + index);
         setPage('result');
     };
 
     return (
         <div>
             {!isFinished ? (
-                <div className="bg-question flex flex-col">
+                <div className="bg-question flex flex-col pt-32">
                     <div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
                         QUESTION {currentQuestionSet[currentQuestion].id}
                     </div>
-                    <div className="text-lg mb-6 text-Yellow font-ibm-plex-thai">
+                    <div className="text-lg mb-6 text-Yellow font-ibm-plex-thai text-center">
                         {currentQuestionSet[currentQuestion].question}
                     </div>
                     <div className="space-y-4 mb-4">
@@ -266,36 +203,32 @@ const Major: FC<SaiProps> = ({ sai }) => {
                             (choice, index) => (
                                 <button
                                     key={index}
-                                    onClick={() =>
-                                        currentQuestionSet === techSuperUltraSpecial
-                                            ? handleSuperUltraSpecialResult(index)
-                                            : handleNext(index)
-                                    }
-                                    className={`w-full p-3 rounded-md font-ibm-plex-thai ${
-                                        selectedOption === index
-                                            ? 'bg-gray-400 text-white'
-                                            : 'bg-gray-200'
-                                    }`}
+                                    onClick={() => handleNext(index)}
+								className={`w-full p-3 rounded-md font-ibm-plex-thai ${
+									selectedOption === index
+										? 'bg-gray-400 text-white'
+										: 'bg-gray-200'
+								}`}
                                 >
                                     {choice}
                                 </button>
                             )
                         )}
                     </div>
-                    <Button
+                    {/* <Button
                         onClick={handlePrevious}
                         className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
                         disabled={currentQuestion === 0}
                     >
                         Back
-                    </Button>
+                    </Button> */}
                 </div>
             ) : (
-                <div className="bg-question flex flex-col">
+                <div className="bg-question flex flex-col pt-32">
                     <div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
                         EXTRA QUESTION
                     </div>
-                    <div className="text-lg mb-6 text-Yellow font-ibm-plex-thai">
+                    <div className="text-lg mb-6 text-Yellow font-ibm-plex-thai text-center">
                         {currentExtraSet[0].question}
                     </div>
                     <div className="space-y-4 mb-4">
@@ -313,13 +246,13 @@ const Major: FC<SaiProps> = ({ sai }) => {
                             </button>
                         ))}
                     </div>
-                    <Button
+                    {/* <Button
                         onClick={handlePreviousToSai}
                         className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
                         disabled={currentQuestion === 0}
                     >
                         Back
-                    </Button>
+                    </Button> */}
                 </div>
             )}
         </div>

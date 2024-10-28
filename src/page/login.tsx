@@ -13,7 +13,7 @@ const Login = () => {
 	//เปลี่ยนสถานะหน้า Home
 	const handleQuestion = () => {
 		console.log({ name: name });
-		setPage('question');
+		setPage('sai');
 	};
 	return (
 		<div className="bg-mobile">
