@@ -14,7 +14,7 @@ const Home = () => {
 
 	return (
 		<div
-			className="bg-home flex flex-col items-center gap-8 "
+			className="bg-home flex flex-col items-center gap-8"
 			onClick={handleLogin}
 		>
 			<img className="w-20 h-20" src="../assets/logo white-border-yellow.svg" />
