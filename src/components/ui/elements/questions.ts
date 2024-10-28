@@ -68,7 +68,7 @@ const questionsSaiExtra = [
 
 const bioQuestion = [
 	{
-		id: 1,
+		id: 6,
 		question: 'งานอดิเรก',
 		choices: [
 			'เดินเล่นในสวน',
@@ -78,7 +78,7 @@ const bioQuestion = [
 		],
 	},
 	{
-		id: 2,
+		id: 7,
 		question: 'พลังวิเศษ',
 		choices: [
 			'คุยกับสิ่งมีชีวิตได้ทุกชนิด',
@@ -88,7 +88,7 @@ const bioQuestion = [
 		],
 	},
 	{
-		id: 3,
+		id: 8,
 		question: 'หนังเรื่องที่ชอบ',
 		choices: [
 			'Zootopia',
@@ -98,7 +98,7 @@ const bioQuestion = [
 		],
 	},
 	{
-		id: 4,
+		id: 9,
 		question: 'สถานที่ที่สนใจที่สุด',
 		choices: [
 			'สวนสัตว์',
@@ -108,7 +108,7 @@ const bioQuestion = [
 		],
 	},
 	{
-		id: 5,
+		id: 10,
 		question: 'เพลงที่ใช่ที่สุด',
 		choices: [
 			'17 - dept',
@@ -121,7 +121,7 @@ const bioQuestion = [
 
 const phyQuestion = [
 	{
-		id: 1,
+		id: 6,
 		question: 'งานอดิเรก',
 		choices: [
 			'เล่นเกม',
@@ -131,7 +131,7 @@ const phyQuestion = [
 		],
 	},
 	{
-		id: 2,
+		id: 7,
 		question: 'พลังวิเศษ',
 		choices: [
 			'Teleport',
@@ -141,7 +141,7 @@ const phyQuestion = [
 		],
 	},
 	{
-		id: 3,
+		id: 8,
 		question: 'หนังเรื่องที่ชอบ',
 		choices: [
 			'Baymax',
@@ -151,7 +151,7 @@ const phyQuestion = [
 		],
 	},
 	{
-		id: 4,
+		id: 9,
 		question: 'สถานที่ที่สนใจที่สุด',
 		choices: [
 			'อินเตอร์เน็ตคาเฟ่',
@@ -161,7 +161,7 @@ const phyQuestion = [
 		],
 	},
 	{
-		id: 5,
+		id: 10,
 		question: 'เพลงที่ใช่ที่สุด',
 		choices: [
 			'เพลงอนิเมะ',
@@ -174,7 +174,7 @@ const phyQuestion = [
 
 const enviQuestion = [
 	{
-		id: 1,
+		id: 6,
 		question: 'งานอดิเรก',
 		choices: [
 			'เดินเล่นในสวน',
@@ -183,7 +183,7 @@ const enviQuestion = [
 		],
 	},
 	{
-		id: 2,
+		id: 7,
 		question: 'พลังวิเศษ',
 		choices: [
 			'ควบคุมสภาพอากาศ',
@@ -192,7 +192,7 @@ const enviQuestion = [
 		],
 	},
 	{
-		id: 3,
+		id: 8,
 		question: 'หนังเรื่องที่ชอบ',
 		choices: [
 			'Wall E',
@@ -201,7 +201,7 @@ const enviQuestion = [
 		],
 	},
 	{
-		id: 4,
+		id: 9,
 		question: 'สถานที่ที่สนใจที่สุด',
 		choices: [
 			'Amazon Rainforest',
@@ -210,7 +210,7 @@ const enviQuestion = [
 		],
 	},
 	{
-		id: 5,
+		id: 10,
 		question: 'เพลงที่ใช่ที่สุด',
 		choices: [
 			'หมวกเมฆสีรุ้ง - yew',
@@ -222,19 +222,19 @@ const enviQuestion = [
 
 const techQuestion = [
 	{
-		id: 1,
+		id: 6,
 		question: 'งานอดิเรก',
 		choices: [
 			'เล่นดนตรี',
 			'ทำอาหาร',
 			'ดูหนัง',
 			'ถ่ายรูป',
-			'อ่อกกำลังกาย',
+			'ออกกำลังกาย',
 			'ดูดวง',
 		],
 	},
 	{
-		id: 2,
+		id: 7,
 		question: 'พลังวิเศษ',
 		choices: [
 			'อ่านใจคนได้',
@@ -246,7 +246,7 @@ const techQuestion = [
 		],
 	},
 	{
-		id: 3,
+		id: 8,
 		question: 'หนังเรื่องที่ชอบ',
 		choices: [
 			'Megamind',
@@ -254,10 +254,11 @@ const techQuestion = [
 			'Elemental',
 			'Bolt',
 			'Jurrassic Park',
-			'Phineaus&Ferb',
+			'Phineas&Ferb',
 		],
 	},
 ];
+
 const questionsExtra = [
 	{
 		id: 1,
