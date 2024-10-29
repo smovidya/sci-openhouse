@@ -31,7 +31,7 @@ const Home = () => {
 				<img
 					src={Butterfly}
 					alt="sun"
-					className="absolute overflow-hidden min-w-[530px] h-auto rotate-45 left-[-180px] bottom-[-150px] z-1" />
+					className="absolute overflow-hidden min-w-[480px] h-auto rotate-45 left-[-180px] bottom-[-150px] z-1" />
 			</div>
 		</div>
 	);
