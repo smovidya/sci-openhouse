@@ -117,7 +117,7 @@ const Tech: FC<SaiProps> = ({ sai }) => {
 	return (
 		<div>
 			{!isFinished && (
-				<div className="bg-question flex flex-col pt-32">
+				<div className="bg-question flex flex-col pt-32 h-dvh">
 					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						QUESTION {techQ[currentQuestion].id}
 					</div>
@@ -150,7 +150,7 @@ const Tech: FC<SaiProps> = ({ sai }) => {
 				</div>
 			)}
 			{isFinished && !isFinished2 && (
-				<div className="bg-question flex flex-col pt-32">
+				<div className="bg-question flex flex-col pt-32 h-dvh">
 					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						QUESTION {techExtra[currentQuestion].id}
 					</div>
@@ -190,7 +190,7 @@ const Tech: FC<SaiProps> = ({ sai }) => {
 				</div>
 			)}
 			{isFinished && isFinished2 && (
-				<div className="bg-question flex flex-col pt-32">
+				<div className="bg-question flex flex-col pt-32 h-dvh">
 					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						EXTRA QUESTION
 					</div>

@@ -105,7 +105,7 @@ const Sai = () => {
 	return (
 		<div>
 			{!isFinished && (
-				<div className="bg-question flex flex-col pt-32">
+				<div className="bg-question flex flex-col pt-32 h-dvh">
 					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						QUESTION {qSai[currentQuestion].id}
 					</div>
@@ -137,7 +137,7 @@ const Sai = () => {
 				</div>
 			)}
 			{isFinished && (
-				<div className="bg-question flex flex-col pt-32">
+				<div className="bg-question flex flex-col pt-32 h-dvh">
 					<div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
 						EXTRA QUESTION
 					</div>

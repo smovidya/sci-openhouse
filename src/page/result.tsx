@@ -23,7 +23,7 @@ const Result: FC<ResultProps> = ({ major: major }) => {
 		return
 	}
 	return (
-		<div className="bg-mobile flex justify-center items-center min-h-fit">
+		<div className="bg-mobile flex justify-center items-center min-h-fit h-dvh">
 			<div
 				key={Data.major}
 				className="flex flex-col gap-4 items-center justify-between font-ibm-plex-thai text-white min-h-[90%] rounded-[30px] h-fit w-[90%] px-4 py-4 my-4 border-4 border-Yellow"
