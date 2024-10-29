@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Sponser } from '../components/ui/elements/sponser';
 import { Header } from '../components/ui/elements/header';
 import { useSetAtom } from 'jotai';
+import { motion } from 'framer-motion';
 import { page } from '../app'; // Adjust the import path to your atom file
 
 const Login = () => {
@@ -16,7 +17,13 @@ const Login = () => {
 		setPage('question');
 	};
 	return (
-		<div className="bg-login flex flex-col items-center gap-5">
+		<motion.div
+  className="bg-login flex flex-col items-center gap-5"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}  
+  exit={{ opacity: 0 }}    
+  transition={{ duration: 2 }} 
+>
 			<img
 				className="w-20 h-20 mb-5"
 				src="../assets/logo white-border-yellow.svg"
@@ -45,7 +52,7 @@ const Login = () => {
 			<div className="mt-10">
 				<Sponser />
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
