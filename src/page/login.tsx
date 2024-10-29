@@ -16,7 +16,7 @@ const Login = () => {
 		setPage('sai');
 	};
 	return (
-		<div className="bg-mobile">
+		<div className="bg-mobile h-dvh">
 			<div className='flex flex-col items-center font-SilverStone-Regular rounded-[30px] h-[92%] w-[90%] px-4 py-4'>
 
 				<img

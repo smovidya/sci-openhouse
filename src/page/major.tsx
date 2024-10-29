@@ -191,7 +191,7 @@ const Major: FC<SaiProps> = ({ sai }) => {
     return (
         <div>
             {!isFinished ? (
-                <div className="bg-question flex flex-col pt-32">
+                <div className="bg-question flex flex-col pt-32 h-dvh">
                     <div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
                         QUESTION {currentQuestionSet[currentQuestion].id}
                     </div>
@@ -224,7 +224,7 @@ const Major: FC<SaiProps> = ({ sai }) => {
                     </Button> */}
                 </div>
             ) : (
-                <div className="bg-question flex flex-col pt-32">
+                <div className="bg-question flex flex-col pt-32 h-dvh">
                     <div className="text-6xl font-SilverStone-Regular text-Yellow my-4 text-center">
                         EXTRA QUESTION
                     </div>
