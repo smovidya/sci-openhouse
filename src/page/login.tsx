@@ -77,16 +77,16 @@ const Login = () => {
 
             {/* Alert Dialog สำหรับยืนยัน */}
             <AlertDialog open={isDialogOpen} onOpenChange={setDialogOpen} >
-                <AlertDialogContent className='p-3 '>
+                <AlertDialogContent className='p-0 '>
                     <AlertDialogHeader>
                         <AlertDialogTitle>แน่ใจไหม?</AlertDialogTitle>
                         <AlertDialogDescription>
-                            คุณต้องการไปต่อหรือไม่?
+                            นี่เป็นเพียงเกมเพื่อความสนุกเท่านั้น ไม่มีผลต่อการตัดสินใจใดๆ
                         </AlertDialogDescription>
                     </AlertDialogHeader>
-                    <AlertDialogFooter className='flex flex-row-reverse text-center gap-1 w-12 h-12'>
-                        <AlertDialogCancel className='m-0'>ยกเลิก</AlertDialogCancel>
-                        <AlertDialogAction   onClick={confirmChangePage}>
+                    <AlertDialogFooter className='flex-row justify-end gap-2 p-4 '>
+                        <AlertDialogCancel className='m-0 w-15 h-15'>ยกเลิก</AlertDialogCancel>
+                        <AlertDialogAction className=' w-15 h-15'  onClick={confirmChangePage}>
                             ตกลง
                         </AlertDialogAction>
                     </AlertDialogFooter>
