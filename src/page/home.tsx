@@ -2,7 +2,7 @@ import { Sponser } from '../components/ui/elements/sponser';
 import { HeaderHome } from '../components/ui/elements/header';
 import { useSetAtom } from 'jotai';
 import { page } from '../app'; // Adjust the import path to your atom file
-import Butterfly from '/assets/butterfly2.svg';
+
 
 //หน้าแรกเมื่อเข้าสู่เว็บ
 const Home = () => {
