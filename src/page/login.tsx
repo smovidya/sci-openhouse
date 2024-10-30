@@ -5,49 +5,95 @@ import { Sponser } from '../components/ui/elements/sponser';
 import { Header } from '../components/ui/elements/header';
 import { useSetAtom } from 'jotai';
 import { page } from '../app'; // Adjust the import path to your atom file
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+} from "../components/ui/alert-dialog";
 
 const Login = () => {
-	const [name, setName] = useState(''); //เก็บชื่อ
-	//เก็บสถานะหน้าว่าเป็นหน้า Home หรือไม่
-	const setPage = useSetAtom(page); // Get the setter for the atom
-	//เปลี่ยนสถานะหน้า Home
-	const handleQuestion = () => {
-		console.log({ name: name });
-		setPage('sai');
-	};
-	return (
-		<div className="bg-mobile h-dvh">
-			<div className='flex flex-col items-center font-SilverStone-Regular rounded-[30px] h-[92%] w-[90%] px-4 py-4'>
+    const [name, setName] = useState(''); // สร้าง state เก็บชื่อ
+    const [isDialogOpen, setDialogOpen] = useState(false); // จัดการสถานะของ Alert Dialog
+    const setPage = useSetAtom(page); // ฟังก์ชันสำหรับเปลี่ยนสถานะของหน้า
 
-				<img
-					className="w-24 h-24 mt-1 mb-[-21px]"
-					src="/assets/logo white-border-yellow.svg" />
-				<div className='pt-[62px]'>
-					<Header /></div>
-				<div className="flex flex-col ">
-					<div className="text-center text-2xl mt-[1px] text-Yellow lowercase mb-4">
-						DROP YOUR NAME
-					</div>
-					<Input
-						type="text"
-						placeholder="Your Name"
-						className="w-72 h-12 font-sans bg-white border-transparent text-center rounded-md shadow-md mb-4"
-						onChange={(e) => setName(e.target.value)} />
+    // ตรวจสอบเมื่อกดปุ่ม Next
+    const handleQuestion = () => {
+        if (name === "") { // ถ้าชื่อว่าง แสดงแจ้งเตือนและหยุดทำงาน
+            alert('กรุณาใส่ชื่อของคุณ');
+            return;
+        }
+        setDialogOpen(true); // เปิด Alert Dialog
+    };
 
-					<Button
-						onClick={handleQuestion}
-						type="submit"
-						className="self-end w-20 h-10 px-6 py-2 font-sans rounded-md bg-Yellow hover:bg-yellow-500 text-black font-medium">
-						Next
-					</Button>
-				</div>
-				<div className="mt-12">
-					<Sponser />
-				</div>
-			</div>
-		</div>
+    // ฟังก์ชันยืนยันการเปลี่ยนหน้า
+    const confirmChangePage = () => {
+        console.log({ name: name }); // แสดงชื่อใน console (สำหรับ debug)
+        setPage('sai'); // เปลี่ยนหน้าไปยัง 'sai'
+        setDialogOpen(false); // ปิด Alert Dialog
+    };
 
-	);
+    return (
+        <div className="bg-mobile h-dvh">
+            <div className='flex flex-col items-center font-SilverStone-Regular rounded-[30px] h-[92%] w-[90%] px-4 py-4'>
+                {/* แสดงโลโก้ */}
+                <img
+                    className="w-24 h-24 mt-1 mb-[-21px]"
+                    src="/assets/logo white-border-yellow.svg"
+                />
+                <div className='pt-[62px]'>
+                    <Header /> {/* แสดง Header */}
+                </div>
+                <div className="flex flex-col">
+                    <div className="text-center text-2xl mt-[1px] text-Yellow lowercase mb-4">
+                        DROP YOUR NAME {/* ข้อความให้ผู้ใช้กรอกชื่อ */}
+                    </div>
+
+                    {/* Input สำหรับรับชื่อ */}
+                    <Input
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-72 h-12 font-sans bg-white border-transparent text-center rounded-md shadow-md mb-4"
+                        onChange={(e) => setName(e.target.value)} // อัปเดตค่า name เมื่อมีการกรอกข้อมูล
+                    />
+
+                    {/* ปุ่ม Next */}
+                    <Button
+                        onClick={handleQuestion}
+                        type="submit"
+                        className="self-end w-20 h-10 px-6 py-2 font-sans rounded-md bg-Yellow hover:bg-yellow-500 text-black font-medium"
+                    >
+                        Next
+                    </Button>
+                </div>
+                <div className="mt-12">
+                    <Sponser /> {/* แสดงส่วนของสปอนเซอร์ */}
+                </div>
+            </div>
+
+            {/* Alert Dialog สำหรับยืนยัน */}
+            <AlertDialog open={isDialogOpen} onOpenChange={setDialogOpen} >
+                <AlertDialogContent className='p-3 '>
+                    <AlertDialogHeader>
+                        <AlertDialogTitle>แน่ใจไหม?</AlertDialogTitle>
+                        <AlertDialogDescription>
+                            คุณต้องการไปต่อหรือไม่?
+                        </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter className='flex flex-row-reverse text-center gap-1 w-12 h-12'>
+                        <AlertDialogCancel className='m-0'>ยกเลิก</AlertDialogCancel>
+                        <AlertDialogAction   onClick={confirmChangePage}>
+                            ตกลง
+                        </AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
+        </div>
+    );
 };
 
-export { Login };
+export { Login }; // ส่งออก component Login
