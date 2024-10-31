@@ -46,7 +46,7 @@ const Result: FC<ResultProps> = ({ major: major }) => {
 						console.log(Data.name);
 						downloadImageFromURL(`/assets/share-img/${Data.name}.png`, `${Data.name}`);
 					}}
-					className='flex justify-center items-center gap-2 bg-transparent bg-Yellow hover:bg-yellow-500 self-center w-full'>
+					className='flex justify-center items-center gap-2 bg-transparent bg-Yellow hover:bg-yellow-500 self-center w-full border-0'>
 					<Download className='' />
 					<p className='text-[16px]'>Download Image</p>
 				</Button>

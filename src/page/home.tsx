@@ -15,22 +15,26 @@ const Home = () => {
   
 	return (
 <motion.div
-      className="bg-home flex flex-col items-center gap-8 h-dvh"
+      className="bg-mobile flex flex-col items-center gap-8 relative h-dvh"
 	  initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }}  
       exit={{ opacity: 0 }}     
       transition={{ duration: 0.5 }} 
       onClick={handleLogin}
     >
-      <img
-        className="w-20 h-20"
-        src="../assets/logo white-border-yellow.svg"
-      />
-      <HeaderHome />
-      <div className="text-center text-yellow-400 text-xl font-silverstone uppercase leading-7">
-        Click to continue
-      </div>
-      <Sponser />
+      <div className="flex flex-col items-center font-ibm-plex-thai text-white rounded-[30px] h-[92%] w-[90%] px-4 py-4 border-4 border-Yellow bg-gradient-to-b">
+				<div className='flex flex-col justify-center items-center'>
+					<img className="w-24 h-24" src="/assets/logo white-border-yellow.svg" />
+					<HeaderHome />
+					<p className="mt-10 text-center text-Yellow text-3xl font-SilverStone-Regular uppercase leading-7">
+						Click to continue
+					</p>
+					<div className='mt-20 z-10'>
+						<Sponser />
+					</div>
+				</div>
+				
+			</div>
     </motion.div>
 	);
   };
