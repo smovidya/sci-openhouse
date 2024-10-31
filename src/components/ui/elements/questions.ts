@@ -254,7 +254,7 @@ const techQuestion = [
 			'Elemental',
 			'Bolt',
 			'Jurrassic Park',
-			'Phineas&Ferb',
+			'Phineaus&Ferb',
 		],
 	},
 ];
