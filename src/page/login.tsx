@@ -22,7 +22,7 @@ const Login = () => {
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}  
   exit={{ opacity: 0 }}    
-  transition={{ duration: 2 }} 
+  transition={{ duration: 0.5 }} 
 >
 			<img
 				className="w-20 h-20 mb-5"
