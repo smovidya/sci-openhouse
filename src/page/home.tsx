@@ -15,7 +15,7 @@ const Home = () => {
   
 	return (
 <motion.div
-      className="bg-home flex flex-col items-center gap-8 "
+      className="bg-home flex flex-col items-center gap-8 h-dvh"
 	  initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }}  
       exit={{ opacity: 0 }}     

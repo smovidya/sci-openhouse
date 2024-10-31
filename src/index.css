@@ -187,7 +187,7 @@
 	}
 
 	.bg-question {
-		background-image: url('../assets/QuestionBG.svg');
+		background-image: url('/background.webp');
 		background-size: cover;
 		background-position: center;
 		width: 100vw;

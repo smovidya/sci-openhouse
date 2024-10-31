@@ -14,11 +14,11 @@ const Login = () => {
 	//เปลี่ยนสถานะหน้า Home
 	const handleQuestion = () => {
 		console.log({ name: name });
-		setPage('question');
+		setPage('sai');
 	};
 	return (
 		<motion.div
-  className="bg-login flex flex-col items-center gap-5"
+  className="bg-login flex flex-col items-center gap-5 h-dvh"
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}  
   exit={{ opacity: 0 }}    
@@ -40,18 +40,16 @@ const Login = () => {
 					onChange={(e) => setName(e.target.value)}
 				/>
 
-				<Button
-					onClick={handleQuestion}
-					type="submit"
-					className="self-end w-20 h-10 px-6 py-2 rounded-md bg-Yellow text-black font-medium"
-				>
-					Next
-				</Button>
-			</div>
-
-			<div className="mt-10">
-				<Sponser />
-			</div>
+					<Button
+						onClick={handleQuestion}
+						type="submit"
+						className="self-end w-20 h-10 px-6 py-2 font-sans rounded-md bg-Yellow hover:bg-yellow-500 text-black font-medium">
+						Next
+					</Button>
+				</div>
+				<div className="mt-12">
+					<Sponser />
+				</div>
 		</motion.div>
 	);
 };
