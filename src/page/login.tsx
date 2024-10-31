@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Sponser } from '../components/ui/elements/sponser';
 import { Header } from '../components/ui/elements/header';
 import { useSetAtom } from 'jotai';
+import { motion } from 'framer-motion';
 import { page } from '../app'; // Adjust the import path to your atom file
 
 const Login = () => {
@@ -16,23 +17,28 @@ const Login = () => {
 		setPage('sai');
 	};
 	return (
-		<div className="bg-mobile h-dvh">
-			<div className='flex flex-col items-center font-SilverStone-Regular rounded-[30px] h-[92%] w-[90%] px-4 py-4'>
-
-				<img
-					className="w-24 h-24 mt-1 mb-[-21px]"
-					src="/assets/logo white-border-yellow.svg" />
-				<div className='pt-[62px]'>
-					<Header /></div>
-				<div className="flex flex-col ">
-					<div className="text-center text-2xl mt-[1px] text-Yellow lowercase mb-4">
-						DROP YOUR NAME
-					</div>
-					<Input
-						type="text"
-						placeholder="Your Name"
-						className="w-72 h-12 font-sans bg-white border-transparent text-center rounded-md shadow-md mb-4"
-						onChange={(e) => setName(e.target.value)} />
+		<motion.div
+  className="bg-login flex flex-col items-center gap-5 h-dvh"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}  
+  exit={{ opacity: 0 }}    
+  transition={{ duration: 2 }} 
+>
+			<img
+				className="w-20 h-20 mb-5"
+				src="../assets/logo white-border-yellow.svg"
+			/>
+			<Header />
+			<div className="flex flex-col">
+				<div className="text-center text-2xl text-Yellow font-ibm-plex-thai mb-4">
+					DROP YOUR NAME
+				</div>
+				<Input
+					type="text"
+					placeholder="Your Name"
+					className="w-72 h-12 bg-white border-transparent text-center rounded-md shadow-md mb-4"
+					onChange={(e) => setName(e.target.value)}
+				/>
 
 					<Button
 						onClick={handleQuestion}
@@ -44,9 +50,7 @@ const Login = () => {
 				<div className="mt-12">
 					<Sponser />
 				</div>
-			</div>
-		</div>
-
+		</motion.div>
 	);
 };
 
