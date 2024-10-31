@@ -6,6 +6,7 @@ import {
 	techExtra as techExtra,
 	techSuperUltraSpecial as techSuperUltraSpecial,
 } from '../components/ui/elements/questions';
+import { Button } from '../components/ui/button';
 
 type SaiProps = {
 	sai: number;
@@ -16,7 +17,7 @@ const Tech: FC<SaiProps> = ({ sai }) => {
 	const [selectedOption, setSelectedOption] = useState(-1);
 	const [isFinished, setIsFinished] = useState(false);
 	const [isFinished2, setIsFinished2] = useState(false);
-	const [, setAnswers] = useState<number[]>(Array(6).fill(-1));
+	const [answers, setAnswers] = useState<number[]>(Array(6).fill(-1));
 	const [filteredChoices, setFilteredChoices] = useState<number[]>([]);
 
 	const setPage = useSetAtom(page);
@@ -114,6 +115,20 @@ const Tech: FC<SaiProps> = ({ sai }) => {
 		setPage('result');
 	};
 
+	const handlePrevious = () => {
+		if (currentQuestion > 0) {
+			const previousAnswer = answers[currentQuestion - 1];
+			setSelectedOption(previousAnswer);
+			setCurrentQuestion(currentQuestion - 1);
+		}
+	};
+	const handlePreviousToSai = () => {
+		setIsFinished(false);
+		const previousAnswer = answers[4];
+		setSelectedOption(previousAnswer);
+		setCurrentQuestion(currentQuestion);
+	};
+
 	return (
 		<div>
 			{!isFinished && (
@@ -180,13 +195,13 @@ const Tech: FC<SaiProps> = ({ sai }) => {
 								</button>
 							))}
 					</div>
-					{/* <Button
+					<Button
 						onClick={handlePrevious}
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
 						Back
-					</Button> */}
+					</Button>
 				</div>
 			)}
 			{isFinished && isFinished2 && (
@@ -220,13 +235,13 @@ const Tech: FC<SaiProps> = ({ sai }) => {
 								</button>
 							))}
 					</div>
-					{/* <Button
-						onClick={handlePrevious}
+					<Button
+						onClick={handlePreviousToSai}
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
 						Back
-					</Button> */}
+					</Button>
 				</div>
 			)}
 

@@ -6,12 +6,13 @@ import {
 import { useState } from 'react';
 import { useSetAtom } from 'jotai';
 import { page, mySai } from '../app';
+import { Button } from '../components/ui/button';
 
 const Sai = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0); // Track the current question index
 	const [selectedOption, setSelectedOption] = useState(-1); // Track the selected option index
 	const [isFinished, setIsFinished] = useState(false); // Indicate whether the first set of questions is completed
-	const [ , setAnswers] = useState<number[]>(Array(6).fill(-1)); // Store all answers
+	const [answers , setAnswers] = useState<number[]>(Array(6).fill(-1)); // Store all answers
 	const [mostFrequent, setMostFrequent] = useState<number[]>([]); // Track the most frequent "sai" values
 	const [extraChoices, setExtraChoices] = useState<string[]>([]); // Store filtered extra choices
 
@@ -36,13 +37,14 @@ const Sai = () => {
 	};
 
 	// Navigate to the previous question
-	// const handlePrevious = () => {
-	// 	if (currentQuestion > 0) {
-	// 		const previousAnswer = answers[currentQuestion - 1];
-	// 		setSelectedOption(previousAnswer);
-	// 		setCurrentQuestion(currentQuestion - 1);
-	// 	}
-	// };
+	const handlePrevious = () => {
+		if (currentQuestion > 0) {
+			const previousAnswer = answers[currentQuestion - 1];
+			setSelectedOption(previousAnswer);
+			setCurrentQuestion(currentQuestion - 1);
+		}
+	};
+
 
 	// Determine the most frequent "sai" or handle tie cases
 	const determineHighestSai = (answers: number[]) => {
@@ -84,12 +86,12 @@ const Sai = () => {
 		handleResult(saiValue);
 	};
 
-	// const handlePreviousToSai = () => {
-	// 	setIsFinished(false);
-	// 	const previousAnswer = answers[4];
-	// 	setSelectedOption(previousAnswer);
-	// 	setCurrentQuestion(currentQuestion);
-	// };
+	const handlePreviousToSai = () => {
+		setIsFinished(false);
+		const previousAnswer = answers[4];
+		setSelectedOption(previousAnswer);
+		setCurrentQuestion(currentQuestion);
+	};
 
 	// Set the result and navigate to the result page
 	const handleResult = (sai: number) => {
@@ -127,13 +129,13 @@ const Sai = () => {
 							</button>
 						))}
 					</div>
-					{/* <Button
+					<Button
 						onClick={handlePrevious}
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
 						Back
-					</Button> */}
+					</Button>
 				</div>
 			)}
 			{isFinished && (
@@ -159,13 +161,13 @@ const Sai = () => {
 							</button>
 						))}
 					</div>
-					{/* <Button
+					<Button
 						onClick={handlePreviousToSai}
 						className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
 						disabled={currentQuestion === 0}
 					>
 						Back
-					</Button> */}
+					</Button>
 				</div>
 			)}
 		</div>

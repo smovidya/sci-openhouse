@@ -74,7 +74,7 @@ const bioQuestion = [
 			'เดินเล่นในสวน',
 			'เล่นดนตรี',
 			'จิบชายามว่าง',
-			'ถ่ายคอนเท้น',
+			'ถ่าย content',
 		],
 	},
 	{
@@ -125,7 +125,7 @@ const phyQuestion = [
 		question: 'งานอดิเรก',
 		choices: [
 			'เล่นเกม',
-			'ถ่ายคอนเท้น',
+			'ถ่าย content',
 			'ร้องเพลง',
 			'อ่านหนังสือ',
 		],
@@ -254,7 +254,7 @@ const techQuestion = [
 			'Elemental',
 			'Bolt',
 			'Jurrassic Park',
-			'Phineas&Ferb',
+			'Phineaus&Ferb',
 		],
 	},
 ];

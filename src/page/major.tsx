@@ -9,6 +9,7 @@ import {
     phyExtra as phyExtra,
     enviExtra as enviExtra,
 } from '../components/ui/elements/questions';
+import { Button } from '../components/ui/button';
 // import { Button } from '../components/ui/button';
 
 type SaiProps = {
@@ -19,7 +20,7 @@ const Major: FC<SaiProps> = ({ sai }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedOption, setSelectedOption] = useState(-1);
     const [isFinished, setIsFinished] = useState(false);
-    const [ , setAnswers] = useState<number[]>(Array(6).fill(-1));
+    const [ answers, setAnswers] = useState<number[]>(Array(6).fill(-1));
     const [extraChoices, setExtraChoices] = useState<string[]>([]);
     const [mostFrequent, setMostFrequent] = useState<number[]>([]);
 
@@ -70,14 +71,21 @@ const Major: FC<SaiProps> = ({ sai }) => {
         });
     };
 
-    // // Navigate to the previous question
-    // const handlePrevious = () => {
-    //     if (currentQuestion > 0) {
-    //         const previousAnswer = answers[currentQuestion - 1];
-    //         setSelectedOption(previousAnswer);
-    //         setCurrentQuestion(currentQuestion - 1);
-    //     }
-    // };
+    // Navigate to the previous question
+    const handlePrevious = () => {
+        if (currentQuestion > 0) {
+            const previousAnswer = answers[currentQuestion - 1];
+            setSelectedOption(previousAnswer);
+            setCurrentQuestion(currentQuestion - 1);
+        }
+    };
+
+        const handlePreviousToSai = () => {
+        setIsFinished(false);
+        const previousAnswer = answers[4];
+        setSelectedOption(previousAnswer);
+        setCurrentQuestion(currentQuestion);
+    };
 
     // Determine the most frequent "sai" or handle tie cases
     const determineHighestSai = (answers: number[]) => {
@@ -122,12 +130,7 @@ const Major: FC<SaiProps> = ({ sai }) => {
         handleResult(Number(selectedSai));
     };
 
-    // const handlePreviousToSai = () => {
-    //     setIsFinished(false);
-    //     const previousAnswer = answers[4];
-    //     setSelectedOption(previousAnswer);
-    //     setCurrentQuestion(currentQuestion);
-    // };
+
 
     // Set the result and navigate to the result page
     const handleResult = (index: number) => {
@@ -215,13 +218,13 @@ const Major: FC<SaiProps> = ({ sai }) => {
                             )
                         )}
                     </div>
-                    {/* <Button
+                    <Button
                         onClick={handlePrevious}
                         className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
                         disabled={currentQuestion === 0}
                     >
                         Back
-                    </Button> */}
+                    </Button>
                 </div>
             ) : (
                 <div className="bg-question flex flex-col pt-32 h-dvh">
@@ -246,13 +249,13 @@ const Major: FC<SaiProps> = ({ sai }) => {
                             </button>
                         ))}
                     </div>
-                    {/* <Button
+                    <Button
                         onClick={handlePreviousToSai}
                         className="w-20 text-Yellow border border-Yellow rounded-md bg-Yellow bg-opacity-25 disabled:bg-Yellow-400 font-ibm-plex-thai"
                         disabled={currentQuestion === 0}
                     >
                         Back
-                    </Button> */}
+                    </Button>
                 </div>
             )}
         </div>
