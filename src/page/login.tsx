@@ -87,9 +87,9 @@ const Login = () => {
 
 			{/* Alert Dialog แจ้งเตือนให้ใส่ชื่อ */}
 			<AlertDialog open={!haveName}>
-				<AlertDialogContent className="p-3 max-w-sm">
+				<AlertDialogContent className="p-3 w-dvw max-w-72 rounded-md">
 					<AlertDialogHeader>
-						<AlertDialogDescription className="font-ibm-plex-thai">
+						<AlertDialogDescription className="font-ibm-plex-thai text-start">
 							กรุณาใส่ชื่อของคุณ
 						</AlertDialogDescription>
 					</AlertDialogHeader>
@@ -106,21 +106,21 @@ const Login = () => {
 
 			{/* Alert Dialog สำหรับยืนยัน */}
 			<AlertDialog open={isDialogOpen} onOpenChange={setDialogOpen}>
-				<AlertDialogContent className="p-3 max-w-sm">
+				<AlertDialogContent className="p-3 w-dvw max-w-72 rounded-md">
 					<AlertDialogHeader>
-						<AlertDialogTitle className="font-ibm-plex-thai">
+						<AlertDialogTitle className="font-ibm-plex-thai text-start">
 							คุณพร้อมรึยัง ?
 						</AlertDialogTitle>
-						<AlertDialogDescription className="font-ibm-plex-thai">
+						<AlertDialogDescription className="font-ibm-plex-thai text-start">
 							นี่เป็นเพียงเกมเพื่อความสนุกเท่านั้น ไม่มีผลต่อการตัดสินใจใด ๆ
 						</AlertDialogDescription>
 					</AlertDialogHeader>
-					<AlertDialogFooter className="flex-row justify-end gap-2 ">
-						<AlertDialogCancel className="w-15 h-15 font-ibm-plex-thai">
+					<AlertDialogFooter className="flex-row justify-end gap-2">
+						<AlertDialogCancel className="w-15 h-15 font-ibm-plex-thai mt-0">
 							ยกเลิก
 						</AlertDialogCancel>
 						<AlertDialogAction
-							className=" w-15 h-15 font-ibm-plex-thai"
+							className="w-15 h-15 font-ibm-plex-thai"
 							onClick={confirmChangePage}
 						>
 							ตกลง
