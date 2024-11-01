@@ -47,7 +47,7 @@ const Login = () => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
-			transition={{ duration: 0.5 }}
+			transition={{ duration: 1 }}
 		>
 			<div className="flex flex-col items-center font-SilverStone-Regular rounded-[30px] h-[92%] w-[90%] px-4 py-4">
 				{/* แสดงโลโก้ */}
