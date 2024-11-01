@@ -50,8 +50,6 @@ const Result: FC<ResultProps> = ({ major: major }) => {
 					<Download className='' />
 					<p className='text-[16px]'>Download Image</p>
 				</Button>
-				<img src="/assets/heart.webp"
-					className='absolute z-1 top-[90px] w-[350px]' />
 			</div>
 
 		</div>

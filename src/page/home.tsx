@@ -19,7 +19,7 @@ const Home = () => {
 	  initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }}  
       exit={{ opacity: 0 }}     
-      transition={{ duration: 0.5 }} 
+      transition={{ duration: 1 }} 
       onClick={handleLogin}
     >
       <div className="flex flex-col items-center font-ibm-plex-thai text-white rounded-[30px] h-[92%] w-[90%] px-4 py-4 border-4 border-Yellow bg-gradient-to-b">
